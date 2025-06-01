@@ -1954,6 +1954,49 @@
                     </a>
                 </div>
                 
+                <!-- Mobile Language & Theme Controls -->
+                <div class="md:hidden flex items-center space-x-3">
+                    <!-- Mobile Custom Language Selector -->
+                    <div class="custom-language-selector" id="mobileCustomLanguageSelector">
+                        <div class="language-trigger" id="mobileLanguageTrigger" role="button" tabindex="0" aria-label="Choisir la langue" aria-expanded="false">
+                            <div class="language-trigger-content">
+                                <span class="language-flag">🇫🇷</span>
+                                <span class="language-code">FR</span>
+                            </div>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="custom-language-dropdown" id="mobileLanguageDropdown" role="menu">
+                            <div class="custom-language-option selected" data-lang="fr" role="menuitem" tabindex="0">
+                                <span class="language-flag">🇫🇷</span>
+                                <span>FR</span>
+                            </div>
+                            <div class="custom-language-option" data-lang="en" role="menuitem" tabindex="0">
+                                <span class="language-flag">🇬🇧</span>
+                                <span>EN</span>
+                            </div>
+                            <div class="custom-language-option" data-lang="es" role="menuitem" tabindex="0">
+                                <span class="language-flag">🇪🇸</span>
+                                <span>ES</span>
+                            </div>
+                            <div class="custom-language-option" data-lang="br" role="menuitem" tabindex="0">
+                                <span class="language-flag">
+                                    <img src="photos/drapeau_breton.png" alt="Drapeau breton">
+                                </span>
+                                <span>BR</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mobile Dark Mode Toggle -->
+                    <button id="mobileThemeToggle" 
+                            class="theme-toggle"
+                            aria-label="Basculer entre mode sombre et mode clair"
+                            title="Changer le thème">
+                        <i class="fas fa-moon dark:hidden" aria-hidden="true"></i>
+                        <i class="fas fa-sun hidden dark:block" aria-hidden="true"></i>
+                    </button>
+                </div>
+                
                 <!-- Mobile Menu Button -->
                 <button id="mobileMenuBtn" 
                         class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
@@ -2008,54 +2051,16 @@
                    data-translate="nav-contact"
                    aria-label="Nous contacter">Contact</a>
                 
-                <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
-                    <!-- Mobile Custom Language Selector -->
-                    <div class="custom-language-selector" id="mobileCustomLanguageSelector">
-                        <div class="language-trigger" id="mobileLanguageTrigger" role="button" tabindex="0" aria-label="Choisir la langue" aria-expanded="false">
-                            <div class="language-trigger-content">
-                                <span class="language-flag">🇫🇷</span>
-                                <span class="language-code">FR</span>
-                            </div>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="custom-language-dropdown" id="mobileLanguageDropdown" role="menu">
-                            <div class="custom-language-option selected" data-lang="fr" role="menuitem" tabindex="0">
-                                <span class="language-flag">🇫🇷</span>
-                                <span>FR</span>
-                            </div>
-                            <div class="custom-language-option" data-lang="en" role="menuitem" tabindex="0">
-                                <span class="language-flag">🇬🇧</span>
-                                <span>EN</span>
-                            </div>
-                            <div class="custom-language-option" data-lang="es" role="menuitem" tabindex="0">
-                                <span class="language-flag">🇪🇸</span>
-                                <span>ES</span>
-                            </div>
-                            <div class="custom-language-option" data-lang="br" role="menuitem" tabindex="0">
-                                <span class="language-flag">
-                                    <img src="photos/drapeau_breton.png" alt="Drapeau breton">
-                                </span>
-                                <span>BR</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <button id="mobileThemeToggle" 
-                            class="theme-toggle"
-                            aria-label="Basculer entre mode sombre et mode clair"
-                            title="Changer le thème">
-                        <i class="fas fa-moon dark:hidden" aria-hidden="true"></i>
-                        <i class="fas fa-sun hidden dark:block" aria-hidden="true"></i>
-                    </button>
+                <!-- Emergency Call Button in Mobile Menu -->
+                <div class="pt-4 border-t border-gray-200 dark:border-gray-700">
+                    <a href="tel:+33670614176" 
+                       class="btn-primary text-white px-4 py-3 rounded-lg font-semibold text-sm w-full text-center block"
+                       aria-label="Appeler pour une urgence électrique au 06 70 61 41 76"
+                       title="Urgence 24h/7j">
+                        <i class="fas fa-phone mr-2" aria-hidden="true"></i>
+                        <span data-translate="emergency-call">Urgence</span>
+                    </a>
                 </div>
-                
-                <a href="tel:+33670614176" 
-                   class="block w-full text-center btn-primary text-white px-4 py-3 rounded-lg font-semibold"
-                   aria-label="Appeler pour une urgence électrique au 06 70 61 41 76"
-                   title="Urgence 24h/7j">
-                    <i class="fas fa-phone mr-2" aria-hidden="true"></i>
-                    <span data-translate="emergency-call">Urgence - 06 70 61 41 76</span>
-                </a>
             </div>
         </div>
     </nav>
