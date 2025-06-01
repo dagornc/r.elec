@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Politique de confidentialité de R.ELEC - Protection des données personnelles et respect de votre vie privée." data-translate="meta-description-privacy">
+    <title data-translate="title-privacy">Politique de Confidentialité - R.ELEC Patrick REGNA</title>
+    <link rel="icon" type="image/jpeg" href="photos/logo.jpeg">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .font-heading {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #D32F2F 0%, #19223A 100%);
+        }
+        
+        .dark {
+            background: #191C20;
+            color: #F6F6F6;
+        }
+        
+        .dark .bg-white {
+            background: #20263A !important;
+        }
+        
+        .dark .text-gray-900 {
+            color: #F6F6F6 !important;
+        }
+        
+        .dark .text-gray-700 {
+            color: #B8BCC6 !important;
+        }
+        
+        .dark .text-gray-600 {
+            color: #9CA3AF !important;
+        }
+        
+        .dark .border-gray-200 {
+            border-color: #2A2F3A !important;
+        }
+
+        /* Language Selector Styles */
+        .custom-language-selector {
+            position: relative;
+        }
+        
+        .custom-language-button {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            min-width: 60px;
+        }
+        
+        .custom-language-options {
+            min-width: 140px;
+            border: 1px solid #e5e7eb;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .custom-language-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            color: #374151;
+        }
+        
+        .custom-language-option:hover {
+            background-color: #f3f4f6;
+        }
+        
+        .custom-language-option.selected {
+            background-color: #dbeafe;
+            color: #1d4ed8;
+        }
+        
+        .language-flag {
+            width: 20px;
+            height: 15px;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 dark:bg-slate-900 text-gray-900 dark:text-white transition-colors duration-300">
+    
+    <!-- Header -->
+    <header class="gradient-bg text-white py-6">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <img src="photos/img-electricien.png" alt="Patrick REGNA électricien" class="h-12 w-12 object-cover rounded-lg">
+                    <div>
+                        <h1 class="font-heading font-bold text-2xl">R.ELEC</h1>
+                        <p class="text-sm opacity-90">Patrick REGNA</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <!-- Language Selector -->
+                    <div class="custom-language-selector">
+                        <button class="custom-language-button bg-white/20 hover:bg-white/30 p-2 rounded-lg transition-all" id="languageToggle" aria-label="Sélectionner la langue">
+                            <span class="language-flag" id="currentFlag">🇫🇷</span>
+                            <span class="language-text ml-1 hidden sm:inline" id="currentLang" data-translate="current-lang">FR</span>
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="custom-language-options absolute mt-2 right-0 bg-white rounded-lg shadow-lg py-2 hidden z-50" id="languageDropdown">
+                            <div class="custom-language-option selected" data-lang="fr" role="menuitem" tabindex="0">
+                                <span class="language-flag">🇫🇷</span>
+                                <span data-translate="lang-fr">Français</span>
+                            </div>
+                            <div class="custom-language-option" data-lang="en" role="menuitem" tabindex="0">
+                                <span class="language-flag">🇬🇧</span>
+                                <span data-translate="lang-en">English</span>
+                            </div>
+                            <div class="custom-language-option" data-lang="es" role="menuitem" tabindex="0">
+                                <span class="language-flag">🇪🇸</span>
+                                <span data-translate="lang-es">Español</span>
+                            </div>
+                            <div class="custom-language-option" data-lang="br" role="menuitem" tabindex="0">
+                                <img src="photos/drapeau_breton.png" alt="Drapeau breton" class="language-flag">
+                                <span data-translate="lang-br">Brezhoneg</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="themeToggle" class="bg-white/20 hover:bg-white/30 p-2 rounded-lg transition-all">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+                    
+                    <a href="index.html" class="bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-all">
+                        <i class="fas fa-arrow-left mr-2"></i>
+                        <span data-translate="back-to-site">Retour au site</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-8">
+            <div class="flex items-center mb-8">
+                <i class="fas fa-shield-alt text-4xl text-blue-600 mr-4"></i>
+                <div>
+                    <h1 class="font-heading text-3xl font-bold text-gray-900 dark:text-white" data-translate="privacy-main-title">
+                        Politique de Confidentialité
+                    </h1>
+                    <p class="text-gray-600 dark:text-gray-400 mt-2" data-translate="privacy-last-update">
+                        Dernière mise à jour : Décembre 2024
+                    </p>
+                </div>
+            </div>
+            
+            <div class="prose prose-gray dark:prose-invert max-w-none">
+                
+                <!-- Introduction -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4" data-translate="privacy-intro-title">Introduction</h2>
+                    <div class="text-gray-700 dark:text-gray-300 space-y-4">
+                        <p data-translate="privacy-intro-text1">R.ELEC, représenté par Patrick REGNA, s'engage à protéger et respecter votre vie privée. Cette politique de confidentialité explique comment nous collectons, utilisons et protégeons vos informations personnelles.</p>
+                        <p data-translate="privacy-intro-text2">En utilisant notre site web ou nos services, vous acceptez les pratiques décrites dans cette politique.</p>
+                    </div>
+                </section>
+
+                <!-- Responsable du traitement -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4" data-translate="privacy-responsible-title">1. Responsable du traitement</h2>
+                    <div class="bg-gray-50 dark:bg-slate-700 p-6 rounded-lg">
+                        <div class="space-y-2 text-gray-700 dark:text-gray-300">
+                            <p><strong data-translate="privacy-company">Entreprise :</strong> R.ELEC</p>
+                            <p><strong data-translate="privacy-manager">Responsable :</strong> Patrick REGNA</p>
+                            <p><strong data-translate="privacy-address">Adresse :</strong> Morlaix, 29600, France</p>
+                            <p><strong data-translate="privacy-phone">Téléphone :</strong> 06 70 61 41 76</p>
+                            <p><strong data-translate="privacy-email">Email :</strong> contact@r-elec-morlaix.fr</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Données collectées -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4" data-translate="privacy-data-title">2. Données personnelles collectées</h2>
+                    <div class="text-gray-700 dark:text-gray-300 space-y-4">
+                        <h3 class="text-lg font-semibold" data-translate="privacy-contact-form">Formulaire de contact :</h3>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li data-translate="privacy-data-name">Nom et prénom</li>
+                            <li data-translate="privacy-data-email">Adresse e-mail</li>
+                            <li data-translate="privacy-data-phone">Numéro de téléphone</li>
+                            <li data-translate="privacy-data-city">Ville</li>
+                            <li data-translate="privacy-data-service">Type de service demandé</li>
+                            <li data-translate="privacy-data-description">Description du projet</li>
+                        </ul>
+                        
+                        <h3 class="text-lg font-semibold mt-6" data-translate="privacy-navigation-data">Données de navigation :</h3>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li data-translate="privacy-data-ip">Adresse IP</li>
+                            <li data-translate="privacy-data-browser">Type de navigateur</li>
+                            <li data-translate="privacy-data-pages">Pages visitées</li>
+                            <li data-translate="privacy-data-duration">Durée de visite</li>
+                            <li data-translate="privacy-data-location">Données de géolocalisation approximative</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Finalités -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4" data-translate="privacy-purposes-title">3. Finalités du traitement</h2>
+                    <div class="text-gray-700 dark:text-gray-300">
+                        <p class="mb-4" data-translate="privacy-purposes-intro">Nous utilisons vos données personnelles pour :</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li data-translate="privacy-purpose-quotes">Répondre à vos demandes de devis et d'information</li>
+                            <li data-translate="privacy-purpose-interventions">Planifier et effectuer nos interventions</li>
+                            <li data-translate="privacy-purpose-contact">Vous contacter concernant nos services</li>
+                            <li data-translate="privacy-purpose-improve">Améliorer notre site web et nos services</li>
+                            <li data-translate="privacy-purpose-legal">Respecter nos obligations légales et réglementaires</li>
+                            <li data-translate="privacy-purpose-relation">Gérer la relation client</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Base légale -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4" data-translate="privacy-legal-title">4. Base légale du traitement</h2>
+                    <div class="text-gray-700 dark:text-gray-300 space-y-4">
+                        <p data-translate="privacy-legal-intro">Le traitement de vos données personnelles repose sur :</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li><strong data-translate="privacy-legal-consent">Votre consentement</strong> : <span data-translate="privacy-legal-consent-desc">lorsque vous remplissez notre formulaire de contact</span></li>
+                            <li><strong data-translate="privacy-legal-contract">L'exécution d'un contrat</strong> : <span data-translate="privacy-legal-contract-desc">pour la réalisation de prestations électriques</span></li>
+                            <li><strong data-translate="privacy-legal-interest">L'intérêt légitime</strong> : <span data-translate="privacy-legal-interest-desc">pour l'amélioration de nos services et la sécurité de notre site</span></li>
+                            <li><strong data-translate="privacy-legal-obligation">Obligation légale</strong> : <span data-translate="privacy-legal-obligation-desc">pour respecter les réglementations en vigueur</span></li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Conservation -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4" data-translate="privacy-retention-title">5. Durée de conservation</h2>
+                    <div class="text-gray-700 dark:text-gray-300 space-y-4">
+                        <p data-translate="privacy-retention-intro">Nous conservons vos données personnelles pendant :</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li><strong data-translate="privacy-retention-quotes">Demandes de devis</strong> : <span data-translate="privacy-retention-quotes-duration">3 ans à compter de la dernière interaction</span></li>
+                            <li><strong data-translate="privacy-retention-clients">Clients</strong> : <span data-translate="privacy-retention-clients-duration">10 ans après la fin de la relation contractuelle (obligations comptables)</span></li>
+                            <li><strong data-translate="privacy-retention-navigation">Données de navigation</strong> : <span data-translate="privacy-retention-navigation-duration">13 mois maximum</span></li>
+                            <li><strong data-translate="privacy-retention-invoices">Factures et documents comptables</strong> : <span data-translate="privacy-retention-invoices-duration">10 ans (obligation légale)</span></li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Destinataires -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4" data-translate="privacy-recipients-title">6. Destinataires des données</h2>
+                    <div class="text-gray-700 dark:text-gray-300 space-y-4">
+                        <p data-translate="privacy-recipients-intro">Vos données personnelles peuvent être communiquées à :</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li data-translate="privacy-recipients-staff">Patrick REGNA et les employés de R.ELEC (dans le cadre de leurs fonctions)</li>
+                            <li data-translate="privacy-recipients-providers">Nos prestataires techniques (hébergement, maintenance)</li>
+                            <li data-translate="privacy-recipients-partners">Nos partenaires sous-traitants (si nécessaire pour la réalisation de travaux)</li>
+                            <li data-translate="privacy-recipients-authorities">Les autorités compétentes (en cas d'obligation légale)</li>
+                        </ul>
+                        <p class="mt-4 font-semibold" data-translate="privacy-no-selling">Nous ne vendons jamais vos données à des tiers.</p>
+                    </div>
+                </section>
+
+                <!-- Transferts -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">7. Transferts hors UE</h2>
+                    <div class="text-gray-700 dark:text-gray-300">
+                        <p>Vos données personnelles sont traitées au sein de l'Union Européenne. En cas de transfert vers un pays tiers, nous nous assurons que des garanties appropriées sont mises en place conformément au RGPD.</p>
+                    </div>
+                </section>
+
+                <!-- Sécurité -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">8. Sécurité des données</h2>
+                    <div class="text-gray-700 dark:text-gray-300 space-y-4">
+                        <p>Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données :</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li>Chiffrement des données sensibles</li>
+                            <li>Accès restreint aux données personnelles</li>
+                            <li>Sauvegardes régulières et sécurisées</li>
+                            <li>Formation du personnel à la protection des données</li>
+                            <li>Mise à jour régulière des systèmes de sécurité</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Droits -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">9. Vos droits</h2>
+                    <div class="text-gray-700 dark:text-gray-300 space-y-4">
+                        <p>Conformément au RGPD, vous disposez des droits suivants :</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mt-6">
+                            <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                                <h4 class="font-semibold text-blue-800 dark:text-blue-300 mb-2">
+                                    <i class="fas fa-eye mr-2"></i><span>Droit d'accès</span>
+                                </h4>
+                                <p class="text-sm">Connaître les données que nous traitons vous concernant</p>
+                            </div>
+                            
+                            <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                                <h4 class="font-semibold text-green-800 dark:text-green-300 mb-2">
+                                    <i class="fas fa-edit mr-2"></i><span>Droit de rectification</span>
+                                </h4>
+                                <p class="text-sm">Corriger ou mettre à jour vos données personnelles</p>
+                            </div>
+                            
+                            <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+                                <h4 class="font-semibold text-red-800 dark:text-red-300 mb-2">
+                                    <i class="fas fa-trash mr-2"></i><span>Droit d'effacement</span>
+                                </h4>
+                                <p class="text-sm">Demander la suppression de vos données</p>
+                            </div>
+                            
+                            <div class="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg">
+                                <h4 class="font-semibold text-yellow-800 dark:text-yellow-300 mb-2">
+                                    <i class="fas fa-pause mr-2"></i><span>Droit à la limitation</span>
+                                </h4>
+                                <p class="text-sm">Limiter le traitement de vos données</p>
+                            </div>
+                            
+                            <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+                                <h4 class="font-semibold text-purple-800 dark:text-purple-300 mb-2">
+                                    <i class="fas fa-download mr-2"></i><span>Droit à la portabilité</span>
+                                </h4>
+                                <p class="text-sm">Récupérer vos données dans un format utilisable</p>
+                            </div>
+                            
+                            <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-800 dark:text-gray-300 mb-2">
+                                    <i class="fas fa-ban mr-2"></i><span>Droit d'opposition</span>
+                                </h4>
+                                <p class="text-sm">Vous opposer au traitement de vos données</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                            <h4 class="font-semibold text-blue-800 dark:text-blue-300 mb-2">Comment exercer vos droits ?</h4>
+                            <p>Pour exercer vos droits, contactez-nous :</p>
+                            <ul class="list-disc list-inside mt-2 space-y-1">
+                                <li>Par email : contact@r-elec-morlaix.fr</li>
+                                <li>Par téléphone : 06 70 61 41 76</li>
+                                <li>Par courrier : R.ELEC, Morlaix, 29600, France</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Cookies -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">10. Cookies et traceurs</h2>
+                    <div class="text-gray-700 dark:text-gray-300 space-y-4">
+                        <p>Notre site utilise des cookies pour :</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li>Améliorer le fonctionnement du site</li>
+                            <li>Mémoriser vos préférences (langue, mode sombre)</li>
+                            <li>Analyser l'audience (cookies analytiques anonymisés)</li>
+                        </ul>
+                        <p class="mt-4">Vous pouvez configurer votre navigateur pour refuser les cookies, mais certaines fonctionnalités du site pourraient être limitées.</p>
+                    </div>
+                </section>
+
+                <!-- Réclamations -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">11. Réclamations</h2>
+                    <div class="text-gray-700 dark:text-gray-300">
+                        <p>Si vous estimez que le traitement de vos données personnelles constitue une violation du RGPD, vous avez le droit d'introduire une réclamation auprès de la CNIL :</p>
+                        <div class="mt-4 p-4 bg-gray-50 dark:bg-slate-700 rounded-lg">
+                            <p><strong>CNIL</strong><br>
+                            3 Place de Fontenoy - TSA 80715<br>
+                            75334 PARIS CEDEX 07<br>
+                            Téléphone : 01 53 73 22 22<br>
+                            Site web : <a href="https://www.cnil.fr" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">www.cnil.fr</a></p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Modifications -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">12. Modifications de cette politique</h2>
+                    <div class="text-gray-700 dark:text-gray-300">
+                        <p>Nous nous réservons le droit de modifier cette politique de confidentialité à tout moment. Toute modification sera publiée sur cette page avec la date de mise à jour. Nous vous encourageons à consulter régulièrement cette page.</p>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Navigation -->
+            <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+                <div class="flex flex-wrap gap-4">
+                    <a href="index.html" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg transition-all">
+                        <i class="fas fa-home mr-2"></i>
+                        <span>Accueil</span>
+                    </a>
+                    <a href="mentions-legales.html" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg transition-all">
+                        Mentions légales
+                    </a>
+                    <a href="cgv.html" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg transition-all">
+                        CGV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-8 mt-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2024 R.ELEC - Patrick REGNA. Tous droits réservés.</p>
+            <p class="mt-2 text-sm opacity-80">Électricien professionnel à Morlaix - Finistère</p>
+        </div>
+    </footer>
+
+    <script>
+        // ================================
+        // 🌐 SYSTÈME DE TRADUCTION
+        // ================================
+        
+        const translations = {
+            fr: {
+                // Meta and titles
+                'meta-description-privacy': 'Politique de confidentialité de R.ELEC - Protection des données personnelles et respect de votre vie privée.',
+                'title-privacy': 'Politique de Confidentialité - R.ELEC Patrick REGNA',
+                
+                // Navigation and UI
+                'current-lang': 'FR',
+                'lang-fr': 'Français',
+                'lang-en': 'English', 
+                'lang-es': 'Español',
+                'lang-br': 'Brezhoneg',
+                'back-to-site': 'Retour au site',
+                
+                // Main content
+                'privacy-main-title': 'Politique de Confidentialité',
+                'privacy-last-update': 'Dernière mise à jour : Décembre 2024',
+                
+                // Introduction
+                'privacy-intro-title': 'Introduction',
+                'privacy-intro-text1': 'R.ELEC, représenté par Patrick REGNA, s\'engage à protéger et respecter votre vie privée. Cette politique de confidentialité explique comment nous collectons, utilisons et protégeons vos informations personnelles.',
+                'privacy-intro-text2': 'En utilisant notre site web ou nos services, vous acceptez les pratiques décrites dans cette politique.',
+                
+                // Responsible for processing
+                'privacy-responsible-title': '1. Responsable du traitement',
+                'privacy-company': 'Entreprise :',
+                'privacy-manager': 'Responsable :',
+                'privacy-address': 'Adresse :',
+                'privacy-phone': 'Téléphone :',
+                'privacy-email': 'Email :',
+                
+                // Data collected
+                'privacy-data-title': '2. Données personnelles collectées',
+                'privacy-contact-form': 'Formulaire de contact :',
+                'privacy-data-name': 'Nom et prénom',
+                'privacy-data-email': 'Adresse e-mail',
+                'privacy-data-phone': 'Numéro de téléphone',
+                'privacy-data-city': 'Ville',
+                'privacy-data-service': 'Type de service demandé',
+                'privacy-data-description': 'Description du projet',
+                'privacy-navigation-data': 'Données de navigation :',
+                'privacy-data-ip': 'Adresse IP',
+                'privacy-data-browser': 'Type de navigateur',
+                'privacy-data-pages': 'Pages visitées',
+                'privacy-data-duration': 'Durée de visite',
+                'privacy-data-location': 'Données de géolocalisation approximative',
+                
+                // Purposes
+                'privacy-purposes-title': '3. Finalités du traitement',
+                'privacy-purposes-intro': 'Nous utilisons vos données personnelles pour :',
+                'privacy-purpose-quotes': 'Répondre à vos demandes de devis et d\'information',
+                'privacy-purpose-interventions': 'Planifier et effectuer nos interventions',
+                'privacy-purpose-contact': 'Vous contacter concernant nos services',
+                'privacy-purpose-improve': 'Améliorer notre site web et nos services',
+                'privacy-purpose-legal': 'Respecter nos obligations légales et réglementaires',
+                'privacy-purpose-relation': 'Gérer la relation client',
+                
+                // Legal basis
+                'privacy-legal-title': '4. Base légale du traitement',
+                'privacy-legal-intro': 'Le traitement de vos données personnelles repose sur :',
+                'privacy-legal-consent': 'Votre consentement',
+                'privacy-legal-consent-desc': 'lorsque vous remplissez notre formulaire de contact',
+                'privacy-legal-contract': 'L\'exécution d\'un contrat',
+                'privacy-legal-contract-desc': 'pour la réalisation de prestations électriques',
+                'privacy-legal-interest': 'L\'intérêt légitime',
+                'privacy-legal-interest-desc': 'pour l\'amélioration de nos services et la sécurité de notre site',
+                'privacy-legal-obligation': 'Obligation légale',
+                'privacy-legal-obligation-desc': 'pour respecter les réglementations en vigueur',
+                
+                // Retention
+                'privacy-retention-title': '5. Durée de conservation',
+                'privacy-retention-intro': 'Nous conservons vos données personnelles pendant :',
+                'privacy-retention-quotes': 'Demandes de devis',
+                'privacy-retention-quotes-duration': '3 ans à compter de la dernière interaction',
+                'privacy-retention-clients': 'Clients',
+                'privacy-retention-clients-duration': '10 ans après la fin de la relation contractuelle (obligations comptables)',
+                'privacy-retention-navigation': 'Données de navigation',
+                'privacy-retention-navigation-duration': '13 mois maximum',
+                'privacy-retention-invoices': 'Factures et documents comptables',
+                'privacy-retention-invoices-duration': '10 ans (obligation légale)',
+                
+                // Recipients
+                'privacy-recipients-title': '6. Destinataires des données',
+                'privacy-recipients-intro': 'Vos données personnelles peuvent être communiquées à :',
+                'privacy-recipients-staff': 'Patrick REGNA et les employés de R.ELEC (dans le cadre de leurs fonctions)',
+                'privacy-recipients-providers': 'Nos prestataires techniques (hébergement, maintenance)',
+                'privacy-recipients-partners': 'Nos partenaires sous-traitants (si nécessaire pour la réalisation de travaux)',
+                'privacy-recipients-authorities': 'Les autorités compétentes (en cas d\'obligation légale)',
+                'privacy-no-selling': 'Nous ne vendons jamais vos données à des tiers.'
+            },
+            
+            en: {
+                // Meta and titles
+                'meta-description-privacy': 'Privacy policy of R.ELEC - Personal data protection and respect for your privacy.',
+                'title-privacy': 'Privacy Policy - R.ELEC Patrick REGNA',
+                
+                // Navigation and UI
+                'current-lang': 'EN',
+                'lang-fr': 'Français',
+                'lang-en': 'English', 
+                'lang-es': 'Español',
+                'lang-br': 'Brezhoneg',
+                'back-to-site': 'Back to site',
+                
+                // Main content
+                'privacy-main-title': 'Privacy Policy',
+                'privacy-last-update': 'Last updated: December 2024',
+                
+                // Introduction
+                'privacy-intro-title': 'Introduction',
+                'privacy-intro-text1': 'R.ELEC, represented by Patrick REGNA, is committed to protecting and respecting your privacy. This privacy policy explains how we collect, use and protect your personal information.',
+                'privacy-intro-text2': 'By using our website or services, you accept the practices described in this policy.',
+                
+                // Responsible for processing
+                'privacy-responsible-title': '1. Data Controller',
+                'privacy-company': 'Company:',
+                'privacy-manager': 'Manager:',
+                'privacy-address': 'Address:',
+                'privacy-phone': 'Phone:',
+                'privacy-email': 'Email:',
+                
+                // Data collected
+                'privacy-data-title': '2. Personal Data Collected',
+                'privacy-contact-form': 'Contact form:',
+                'privacy-data-name': 'First and last name',
+                'privacy-data-email': 'Email address',
+                'privacy-data-phone': 'Phone number',
+                'privacy-data-city': 'City',
+                'privacy-data-service': 'Type of service requested',
+                'privacy-data-description': 'Project description',
+                'privacy-navigation-data': 'Navigation data:',
+                'privacy-data-ip': 'IP address',
+                'privacy-data-browser': 'Browser type',
+                'privacy-data-pages': 'Pages visited',
+                'privacy-data-duration': 'Visit duration',
+                'privacy-data-location': 'Approximate geolocation data',
+                
+                // Purposes
+                'privacy-purposes-title': '3. Processing Purposes',
+                'privacy-purposes-intro': 'We use your personal data to:',
+                'privacy-purpose-quotes': 'Respond to your quote and information requests',
+                'privacy-purpose-interventions': 'Plan and carry out our interventions',
+                'privacy-purpose-contact': 'Contact you regarding our services',
+                'privacy-purpose-improve': 'Improve our website and services',
+                'privacy-purpose-legal': 'Comply with our legal and regulatory obligations',
+                'privacy-purpose-relation': 'Manage customer relationships',
+                
+                // Legal basis
+                'privacy-legal-title': '4. Legal Basis for Processing',
+                'privacy-legal-intro': 'The processing of your personal data is based on:',
+                'privacy-legal-consent': 'Your consent',
+                'privacy-legal-consent-desc': 'when you fill out our contact form',
+                'privacy-legal-contract': 'Contract execution',
+                'privacy-legal-contract-desc': 'for the performance of electrical services',
+                'privacy-legal-interest': 'Legitimate interest',
+                'privacy-legal-interest-desc': 'for improving our services and site security',
+                'privacy-legal-obligation': 'Legal obligation',
+                'privacy-legal-obligation-desc': 'to comply with applicable regulations',
+                
+                // Retention
+                'privacy-retention-title': '5. Retention Period',
+                'privacy-retention-intro': 'We retain your personal data for:',
+                'privacy-retention-quotes': 'Quote requests',
+                'privacy-retention-quotes-duration': '3 years from last interaction',
+                'privacy-retention-clients': 'Clients',
+                'privacy-retention-clients-duration': '10 years after end of contractual relationship (accounting obligations)',
+                'privacy-retention-navigation': 'Navigation data',
+                'privacy-retention-navigation-duration': '13 months maximum',
+                'privacy-retention-invoices': 'Invoices and accounting documents',
+                'privacy-retention-invoices-duration': '10 years (legal obligation)',
+                
+                // Recipients
+                'privacy-recipients-title': '6. Data Recipients',
+                'privacy-recipients-intro': 'Your personal data may be shared with:',
+                'privacy-recipients-staff': 'Patrick REGNA and R.ELEC employees (in the course of their duties)',
+                'privacy-recipients-providers': 'Our technical service providers (hosting, maintenance)',
+                'privacy-recipients-partners': 'Our subcontractor partners (if necessary for work completion)',
+                'privacy-recipients-authorities': 'Competent authorities (in case of legal obligation)',
+                'privacy-no-selling': 'We never sell your data to third parties.'
+            },
+            
+            es: {
+                // Meta and titles
+                'meta-description-privacy': 'Política de privacidad de R.ELEC - Protección de datos personales y respeto de su privacidad.',
+                'title-privacy': 'Política de Privacidad - R.ELEC Patrick REGNA',
+                
+                // Navigation and UI
+                'current-lang': 'ES',
+                'lang-fr': 'Français',
+                'lang-en': 'English', 
+                'lang-es': 'Español',
+                'lang-br': 'Brezhoneg',
+                'back-to-site': 'Volver al sitio',
+                
+                // Main content
+                'privacy-main-title': 'Política de Privacidad',
+                'privacy-last-update': 'Última actualización: Diciembre 2024',
+                
+                // Introduction
+                'privacy-intro-title': 'Introducción',
+                'privacy-intro-text1': 'R.ELEC, representado por Patrick REGNA, se compromete a proteger y respetar su privacidad. Esta política de privacidad explica cómo recopilamos, usamos y protegemos su información personal.',
+                'privacy-intro-text2': 'Al utilizar nuestro sitio web o servicios, acepta las prácticas descritas en esta política.',
+                
+                // Responsible for processing
+                'privacy-responsible-title': '1. Responsable del Tratamiento',
+                'privacy-company': 'Empresa:',
+                'privacy-manager': 'Responsable:',
+                'privacy-address': 'Dirección:',
+                'privacy-phone': 'Teléfono:',
+                'privacy-email': 'Email:',
+                
+                // Data collected (principales seulement)
+                'privacy-data-title': '2. Datos Personales Recopilados',
+                'privacy-contact-form': 'Formulario de contacto:',
+                'privacy-data-name': 'Nombre y apellidos',
+                'privacy-data-email': 'Dirección de correo electrónico',
+                'privacy-data-phone': 'Número de teléfono',
+                'privacy-navigation-data': 'Datos de navegación:',
+                
+                // Principales sections
+                'privacy-purposes-title': '3. Finalidades del Tratamiento',
+                'privacy-legal-title': '4. Base Legal del Tratamiento',
+                'privacy-retention-title': '5. Período de Conservación',
+                'privacy-recipients-title': '6. Destinatarios de los Datos',
+                'privacy-no-selling': 'Nunca vendemos sus datos a terceros.'
+            },
+            
+            br: {
+                // Meta and titles
+                'meta-description-privacy': 'Reolennoù prevezded R.ELEC - Gwareziñ roadennoù personel ha doujañ ho puhez prevez.',
+                'title-privacy': 'Reolennoù Prevezded - R.ELEC Patrick REGNA',
+                
+                // Navigation and UI
+                'current-lang': 'BR',
+                'lang-fr': 'Galleg',
+                'lang-en': 'Saozneg', 
+                'lang-es': 'Spagnoleg',
+                'lang-br': 'Brezhoneg',
+                'back-to-site': 'Distreiñ d\'ar bajenn',
+                
+                // Main content
+                'privacy-main-title': 'Reolennoù Prevezded',
+                'privacy-last-update': 'Hizivaet da ziwezhañ: Kerzu 2024',
+                
+                // Introduction
+                'privacy-intro-title': 'Digoradur',
+                'privacy-intro-text1': 'R.ELEC, erruet gant Patrick REGNA, a zimez gwareziñ ha doujañ ho puhez prevez. Ar reolennoù prevezded-mañ a zispleg penaos e dastum, implijañ ha gwareziñ ho titouroù personel.',
+                'privacy-intro-text2': 'En ur implijañ hon diouer pe hon servijoù, e asantit d\'ar gwirioù deskrevet er reolennoù-mañ.',
+                
+                // Responsible for processing
+                'privacy-responsible-title': '1. Karg eus ar Gwir',
+                'privacy-company': 'Embregezh:',
+                'privacy-manager': 'Karg:',
+                'privacy-address': 'Chomlech:',
+                'privacy-phone': 'Telefon:',
+                'privacy-email': 'Postel:',
+                
+                // Principales sections
+                'privacy-data-title': '2. Roadennoù Personel Dastumet',
+                'privacy-purposes-title': '3. Palioù ar Gwir',
+                'privacy-legal-title': '4. Diazez Lezennel ar Gwir',
+                'privacy-retention-title': '5. Pad Mirout',
+                'privacy-recipients-title': '6. Degemerien ar Roadennoù',
+                'privacy-no-selling': 'Ne gwerzhomp morse ho roadennoù da drederion.'
+            }
+        };
+
+        // ================================
+        // 🔄 FONCTIONS DE TRADUCTION
+        // ================================
+        
+        function translatePage(lang) {
+            if (!translations[lang]) return;
+            
+            // Mettre à jour tous les éléments avec data-translate
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang][key]) {
+                    // Pour les champs de saisie
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    }
+                    // Pour les meta descriptions
+                    else if (element.tagName === 'META') {
+                        element.content = translations[lang][key];
+                    }
+                    // Pour les titres
+                    else if (element.tagName === 'TITLE') {
+                        element.textContent = translations[lang][key];
+                    }
+                    // Pour les autres éléments
+                    else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+        }
+
+        function updateLanguageDisplay(lang) {
+            const flags = {
+                fr: '🇫🇷',
+                en: '🇬🇧', 
+                es: '🇪🇸',
+                br: 'photos/drapeau_breton.png'
+            };
+            
+            const currentFlag = document.getElementById('currentFlag');
+            const currentLang = document.getElementById('currentLang');
+            
+            if (lang === 'br') {
+                currentFlag.innerHTML = `<img src="${flags[lang]}" alt="Drapeau breton" class="language-flag">`;
+            } else {
+                currentFlag.textContent = flags[lang];
+            }
+            
+            if (currentLang) {
+                currentLang.textContent = translations[lang]['current-lang'];
+            }
+        }
+
+        function updateSelectedOption(lang) {
+            const dropdown = document.getElementById('languageDropdown');
+            if (!dropdown) return;
+            
+            // Retirer la classe selected de toutes les options
+            dropdown.querySelectorAll('.custom-language-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            const selectedOption = dropdown.querySelector(`[data-lang="${lang}"]`);
+            if (selectedOption) {
+                selectedOption.classList.add('selected');
+            }
+        }
+
+        function changeLanguage(lang) {
+            // Sauvegarder le choix
+            localStorage.setItem('selectedLanguage', lang);
+            
+            // Appliquer les traductions
+            translatePage(lang);
+            
+            // Mettre à jour l'affichage
+            updateLanguageDisplay(lang);
+            updateSelectedOption(lang);
+            
+            // Fermer le dropdown
+            const dropdown = document.getElementById('languageDropdown');
+            if (dropdown) {
+                dropdown.classList.add('hidden');
+            }
+        }
+
+        // ================================
+        // 🚀 INITIALISATION
+        // ================================
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mode sombre
+            const savedDarkMode = localStorage.getItem('darkMode');
+            if (savedDarkMode === 'true') {
+                document.documentElement.classList.add('dark');
+            }
+
+            // Theme toggle
+            const themeToggle = document.getElementById('themeToggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    document.documentElement.classList.toggle('dark');
+                    localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+                });
+            }
+            
+            // Initialisation des langues
+            const savedLanguage = localStorage.getItem('selectedLanguage') || 'fr';
+            
+            // S'assurer que le français est la langue par défaut
+            if (!localStorage.getItem('selectedLanguage')) {
+                localStorage.setItem('selectedLanguage', 'fr');
+            }
+            
+            if (savedLanguage && translations[savedLanguage]) {
+                changeLanguage(savedLanguage);
+            }
+            
+            // Toggle du sélecteur de langue
+            const languageToggle = document.getElementById('languageToggle');
+            const languageDropdown = document.getElementById('languageDropdown');
+            
+            if (languageToggle && languageDropdown) {
+                languageToggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    languageDropdown.classList.toggle('hidden');
+                });
+                
+                // Fermer le dropdown si on clique ailleurs
+                document.addEventListener('click', () => {
+                    languageDropdown.classList.add('hidden');
+                });
+                
+                // Gestion des clics sur les options
+                languageDropdown.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const option = e.target.closest('.custom-language-option');
+                    if (option) {
+                        const lang = option.getAttribute('data-lang');
+                        changeLanguage(lang);
+                    }
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

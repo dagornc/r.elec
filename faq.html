@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FAQ - Questions fréquemment posées sur les services électriques de R.ELEC Patrick REGNA à Morlaix." data-translate="meta-description-faq">
+    <title data-translate="title-faq">FAQ - Questions Fréquentes - R.ELEC Patrick REGNA</title>
+    <link rel="icon" type="image/jpeg" href="photos/logo.jpeg">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .font-heading {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #D32F2F 0%, #19223A 100%);
+        }
+        
+        .dark {
+            background: #191C20;
+            color: #F6F6F6;
+        }
+        
+        .dark .bg-white {
+            background: #20263A !important;
+        }
+        
+        .dark .text-gray-900 {
+            color: #F6F6F6 !important;
+        }
+        
+        .dark .text-gray-700 {
+            color: #B8BCC6 !important;
+        }
+        
+        .dark .text-gray-600 {
+            color: #9CA3AF !important;
+        }
+        
+        .dark .border-gray-200 {
+            border-color: #2A2F3A !important;
+        }
+
+        /* FAQ Accordion Styles */
+        .faq-item {
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .faq-question:hover {
+            background-color: rgba(211, 47, 47, 0.05);
+        }
+        
+        /* Styles spécifiques pour le mode sombre */
+        .dark .faq-question {
+            background-color: #374151 !important; /* Fond gris foncé pour les questions */
+            color: #F6F6F6 !important; /* Texte blanc sur fond foncé */
+        }
+        
+        .dark .faq-question:hover {
+            background-color: rgba(211, 47, 47, 0.2) !important;
+        }
+        
+        .dark .faq-question h3 {
+            color: #F6F6F6 !important; /* S'assurer que le titre de la question est visible */
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+            padding: 0 1rem;
+            opacity: 0;
+        }
+        
+        .faq-answer.active {
+            max-height: 600px;
+            padding: 1rem;
+            opacity: 1;
+        }
+        
+        .faq-icon {
+            transition: transform 0.3s ease;
+            color: #6B7280;
+        }
+        
+        .faq-icon.rotated {
+            transform: rotate(180deg);
+            color: #D32F2F;
+        }
+        
+        /* Amélioration de la structure visuelle */
+        .faq-item:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark .faq-item:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Language Selector Styles */
+        .custom-language-selector {
+            position: relative;
+        }
+        
+        .custom-language-button {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            min-width: 60px;
+        }
+        
+        .custom-language-options {
+            min-width: 140px;
+            border: 1px solid #e5e7eb;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .custom-language-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            color: #374151;
+        }
+        
+        .custom-language-option:hover {
+            background-color: #f3f4f6;
+        }
+        
+        .custom-language-option.selected {
+            background-color: #dbeafe;
+            color: #1d4ed8;
+        }
+        
+        .language-flag {
+            width: 20px;
+            height: 15px;
+            object-fit: cover;
+            border-radius: 2px;
+            font-size: 14px;
+            line-height: 1;
+        }
+        
+        .language-text {
+            font-size: 14px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 dark:bg-slate-900 text-gray-900 dark:text-white transition-colors duration-300">
+    
+    <!-- Header -->
+    <header class="gradient-bg text-white py-6">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <img src="photos/img-electricien.png" alt="Patrick REGNA électricien" class="h-12 w-12 object-cover rounded-lg">
+                    <div>
+                        <h1 class="font-heading font-bold text-2xl">R.ELEC</h1>
+                        <p class="text-sm opacity-90">Patrick REGNA</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <!-- Language Selector -->
+                    <div class="custom-language-selector">
+                        <button class="custom-language-button bg-white/20 hover:bg-white/30 p-2 rounded-lg transition-all" id="languageToggle" aria-label="Sélectionner la langue">
+                            <span class="language-flag" id="currentFlag">🇫🇷</span>
+                            <span class="language-text ml-1 hidden sm:inline" id="currentLang" data-translate="current-lang">FR</span>
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="custom-language-options absolute mt-2 right-0 bg-white rounded-lg shadow-lg py-2 hidden z-50" id="languageDropdown">
+                            <div class="custom-language-option selected" data-lang="fr" role="menuitem" tabindex="0">
+                                <span class="language-flag">🇫🇷</span>
+                                <span class="language-text" data-translate="lang-fr">Français</span>
+                            </div>
+                            <div class="custom-language-option" data-lang="en" role="menuitem" tabindex="0">
+                                <span class="language-flag">🇬🇧</span>
+                                <span class="language-text" data-translate="lang-en">English</span>
+                            </div>
+                            <div class="custom-language-option" data-lang="es" role="menuitem" tabindex="0">
+                                <span class="language-flag">🇪🇸</span>
+                                <span class="language-text" data-translate="lang-es">Español</span>
+                            </div>
+                            <div class="custom-language-option" data-lang="br" role="menuitem" tabindex="0">
+                                <span class="language-flag">🏴󠁧󠁢󠁷󠁬󠁳󠁿</span>
+                                <span class="language-text" data-translate="lang-br">Brezhoneg</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="themeToggle" class="bg-white/20 hover:bg-white/30 p-2 rounded-lg transition-all">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+                    
+                    <a href="index.html" class="bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-all">
+                        <i class="fas fa-arrow-left mr-2"></i>
+                        <span data-translate="back-to-site">Retour au site</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-8">
+            <div class="text-center max-w-3xl mx-auto mb-8">
+                <div class="flex items-center justify-center mb-6">
+                    <i class="fas fa-question-circle text-4xl text-blue-600 mr-4"></i>
+                    <div>
+                        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white" data-translate="faq-main-title">
+                            Questions Fréquentes
+                        </h1>
+                    </div>
+                </div>
+                <p class="text-xl text-gray-700 dark:text-gray-300 mb-6" data-translate="faq-subtitle">
+                    Toutes les réponses à vos questions sur l'électricité
+                </p>
+                <p class="text-lg text-gray-600 dark:text-gray-400" data-translate="faq-description">
+                    Ici vous trouverez les réponses aux questions les plus fréquemment posées par nos clients concernant la sécurité électrique, les normes, les prix et nos services.
+                </p>
+            </div>
+
+            <!-- Navigation rapide -->
+            <div class="mb-8 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h3 class="font-semibold text-blue-900 dark:text-blue-100 mb-3" data-translate="faq-quick-nav">Navigation rapide :</h3>
+                <div class="flex flex-wrap gap-2">
+                    <a href="#securite" class="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 rounded-full text-sm hover:bg-red-200 dark:hover:bg-red-900/50 transition-colors">
+                        <i class="fas fa-shield-alt mr-1"></i> <span data-translate="faq-nav-security">Sécurité</span>
+                    </a>
+                    <a href="#normes" class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded-full text-sm hover:bg-yellow-200 dark:hover:bg-yellow-900/50 transition-colors">
+                        <i class="fas fa-certificate mr-1"></i> <span data-translate="faq-nav-standards">Normes</span>
+                    </a>
+                    <a href="#delais" class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors">
+                        <i class="fas fa-clock mr-1"></i> <span data-translate="faq-nav-delays">Délais</span>
+                    </a>
+                    <a href="#tarifs" class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm hover:bg-purple-200 dark:hover:bg-purple-900/50 transition-colors">
+                        <i class="fas fa-euro-sign mr-1"></i> <span data-translate="faq-nav-prices">Tarifs</span>
+                    </a>
+                    <a href="#materiel" class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm hover:bg-green-200 dark:hover:bg-green-900/50 transition-colors">
+                        <i class="fas fa-tools mr-1"></i> <span data-translate="faq-nav-equipment">Matériel</span>
+                    </a>
+                    <a href="#chauffage" class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full text-sm hover:bg-orange-200 dark:hover:bg-orange-900/50 transition-colors">
+                        <i class="fas fa-fire mr-1"></i> <span data-translate="faq-nav-heating">Chauffage</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- FAQ Sections -->
+            
+            <!-- Sécurité Électrique -->
+            <section id="securite" class="mb-8">
+                <h2 class="font-heading text-2xl font-bold text-red-600 mb-6 flex items-center">
+                    <i class="fas fa-shield-alt mr-3"></i>
+                    <span data-translate="faq-section-security">Sécurité Électrique</span>
+                </h2>
+                
+                <div class="space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item border border-gray-200 dark:border-gray-700 rounded-lg">
+                        <div class="faq-question p-4 bg-gray-50 dark:bg-slate-700 rounded-t-lg flex justify-between items-center" onclick="toggleFaq('faq1')">
+                            <h3 class="font-semibold text-gray-900 dark:text-white">
+                                Comment savoir si mon installation électrique est sécurisée ?
+                            </h3>
+                            <i class="fas fa-chevron-down faq-icon text-gray-500" id="icon-faq1"></i>
+                        </div>
+                        <div class="faq-answer" id="answer-faq1">
+                            <p class="text-gray-700 dark:text-gray-300">
+                                Plusieurs signes indiquent un manque de sécurité : prises qui chauffent, odeur de brûlé, étincelles, disjoncteurs qui sautent fréquemment, éclairages qui vacillent. Je propose un diagnostic sécurité gratuit incluant : vérification de la mise à la terre, test des dispositifs différentiels, contrôle des protections, état des câblages. Un rapport détaillé vous est remis avec les priorités d'intervention.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item border border-gray-200 dark:border-gray-700 rounded-lg">
+                        <div class="faq-question p-4 bg-gray-50 dark:bg-slate-700 rounded-t-lg flex justify-between items-center" onclick="toggleFaq('faq2')">
+                            <h3 class="font-semibold text-gray-900 dark:text-white">
+                                Que faire en cas d'odeur de brûlé dans l'installation électrique ?
+                            </h3>
+                            <i class="fas fa-chevron-down faq-icon text-gray-500" id="icon-faq2"></i>
+                        </div>
+                        <div class="faq-answer" id="answer-faq2">
+                            <p class="text-gray-700 dark:text-gray-300">
+                                <strong>URGENCE :</strong> Coupez immédiatement le disjoncteur général, n'utilisez plus l'installation et contactez-nous en urgence au 06 70 61 41 76. Une odeur de brûlé indique un échauffement dangereux pouvant provoquer un incendie. Ne touchez à rien et aérez les locaux. J'interviens dans l'heure pour sécuriser votre installation.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item border border-gray-200 dark:border-gray-700 rounded-lg">
+                        <div class="faq-question p-4 bg-gray-50 dark:bg-slate-700 rounded-t-lg flex justify-between items-center" onclick="toggleFaq('faq3')">
+                            <h3 class="font-semibold text-gray-900 dark:text-white">
+                                Dois-je installer des détecteurs de fumée interconnectés ?
+                            </h3>
+                            <i class="fas fa-chevron-down faq-icon text-gray-500" id="icon-faq3"></i>
+                        </div>
+                        <div class="faq-answer" id="answer-faq3">
+                            <p class="text-gray-700 dark:text-gray-300">
+                                Obligatoire depuis 2015, un détecteur par étage minimum. Je recommande les détecteurs interconnectés : si l'un se déclenche, tous sonnent simultanément. Installation rapide (1h) avec détecteurs certifiés NF et interconnexion radio ou filaire selon votre logement. Tarif : 80€ par détecteur + pose.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Normes et Réglementations -->
+            <section id="normes" class="mb-8">
+                <h2 class="font-heading text-2xl font-bold text-yellow-600 mb-6 flex items-center">
+                    <i class="fas fa-certificate mr-3"></i>
+                    <span data-translate="faq-section-standards">Normes et Réglementations</span>
+                </h2>
+                
+                <div class="space-y-4">
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item border border-gray-200 dark:border-gray-700 rounded-lg">
+                        <div class="faq-question p-4 bg-gray-50 dark:bg-slate-700 rounded-t-lg flex justify-between items-center" onclick="toggleFaq('faq4')">
+                            <h3 class="font-semibold text-gray-900 dark:text-white">
+                                Mon installation doit-elle respecter la norme NF C 15-100 ?
+                            </h3>
+                            <i class="fas fa-chevron-down faq-icon text-gray-500" id="icon-faq4"></i>
+                        </div>
+                        <div class="faq-answer" id="answer-faq4">
+                            <p class="text-gray-700 dark:text-gray-300">
+                                Oui, toute installation neuve ou rénovation complète doit respecter la NF C 15-100. Principales exigences : disjoncteur différentiel 30mA, mise à la terre généralisée, nombre minimal de prises (3 en cuisine, 1 par tranche de 4m² en salon), éclairage de sécurité. Vos travaux existants ne sont pas rétroactifs, mais je recommande une mise en conformité progressive pour votre sécurité.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item border border-gray-200 dark:border-gray-700 rounded-lg">
+                        <div class="faq-question p-4 bg-gray-50 dark:bg-slate-700 rounded-t-lg flex justify-between items-center" onclick="toggleFaq('faq5')">
+                            <h3 class="font-semibold text-gray-900 dark:text-white">
+                                Ai-je besoin d'un certificat Consuel pour vendre ma maison ?
+                            </h3>
+                            <i class="fas fa-chevron-down faq-icon text-gray-500" id="icon-faq5"></i>
+                        </div>
+                        <div class="faq-answer" id="answer-faq5">
+                            <p class="text-gray-700 dark:text-gray-300">
+                                Non obligatoire pour la vente, mais un diagnostic électrique de moins de 3 ans est exigé pour les installations de plus de 15 ans. Si des anomalies importantes sont relevées, les acquéreurs négocient souvent le prix. Je propose une remise en conformité complète avec attestation Consuel, valorisant votre bien immobilier.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 6 -->
+                    <div class="faq-item border border-gray-200 dark:border-gray-700 rounded-lg">
+                        <div class="faq-question p-4 bg-gray-50 dark:bg-slate-700 rounded-t-lg flex justify-between items-center" onclick="toggleFaq('faq6')">
+                            <h3 class="font-semibold text-gray-900 dark:text-white">
+                                Quelles garanties puis-je exiger de mon électricien ?
+                            </h3>
+                            <i class="fas fa-chevron-down faq-icon text-gray-500" id="icon-faq6"></i>
+                        </div>
+                        <div class="faq-answer" id="answer-faq6">
+                            <p class="text-gray-700 dark:text-gray-300">
+                                Exigez toujours : qualification QUALIFELEC, assurance décennale, attestation Consuel pour les installations neuves. Je fournis : garantie parfait achèvement 1 an, garantie biennale 2 ans, garantie décennale 10 ans. Toutes mes factures mentionnent ces garanties. Méfiez-vous des artisans sans qualification ou assurance !
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Délais d'Intervention -->
+            <section id="delais" class="mb-8">
+                <h2 class="font-heading text-2xl font-bold text-blue-600 mb-6 flex items-center">
+                    <i class="fas fa-clock mr-3"></i>
+                    <span data-translate="faq-section-delays">Délais d'Intervention</span>
+                </h2>
+                
+                <div class="space-y-4">
+                    <!-- FAQ Item 7 -->
+                    <div class="faq-item border border-gray-200 dark:border-gray-700 rounded-lg">
+                        <div class="faq-question p-4 bg-gray-50 dark:bg-slate-700 rounded-t-lg flex justify-between items-center" onclick="toggleFaq('faq7')">
+                            <h3 class="font-semibold text-gray-900 dark:text-white">
+                                Dans quels délais intervenez-vous pour un dépannage urgent ?
+                            </h3>
+                            <i class="fas fa-chevron-down faq-icon text-gray-500" id="icon-faq7"></i>
+                        </div>
+                        <div class="faq-answer" id="answer-faq7">
+                            <p class="text-gray-700 dark:text-gray-300">
+                                <strong>Urgences</strong> (panne totale, risque sécurité) : intervention dans l'heure 7j/7 dans un rayon de 15km. <strong>Dépannages classiques</strong> : sous 24h en semaine, 48h le week-end. <strong>Travaux programmés</strong> : 3-7 jours selon la saison. Période chargée (automne/hiver) : délais étendus de 1-2 semaines.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 8 -->
+                    <div class="faq-item border border-gray-200 dark:border-gray-700 rounded-lg">
+                        <div class="faq-question p-4 bg-gray-50 dark:bg-slate-700 rounded-t-lg flex justify-between items-center" onclick="toggleFaq('faq8')">
+                            <h3 class="font-semibold text-gray-900 dark:text-white">
+                                Combien de temps pour une rénovation électrique complète ?
+                            </h3>
+                            <i class="fas fa-chevron-down faq-icon text-gray-500" id="icon-faq8"></i>
+                        </div>
+                        <div class="faq-answer" id="answer-faq8">
+                            <p class="text-gray-700 dark:text-gray-300">
+                                <strong>Appartement 70m²</strong> : 3-5 jours. <strong>Maison 120m²</strong> : 5-8 jours. <strong>Grande maison 200m²</strong> : 8-12 jours. Délais incluent : dépose ancien tableau, passage nouveaux câbles, pose prises/interrupteurs, raccordements, tests, nettoyage. J'organise les travaux pour limiter les coupures de courant quotidiennes.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 9 -->
+                    <div class="faq-item border border-gray-200 dark:border-gray-700 rounded-lg">
+                        <div class="faq-question p-4 bg-gray-50 dark:bg-slate-700 rounded-t-lg flex justify-between items-center" onclick="toggleFaq('faq9')">
+                            <h3 class="font-semibold text-gray-900 dark:text-white">
+                                Puis-je rester dans mon logement pendant les travaux ?
+                            </h3>
+                            <i class="fas fa-chevron-down faq-icon text-gray-500" id="icon-faq9"></i>
+                        </div>
+                        <div class="faq-answer" id="answer-faq9">
+                            <p class="text-gray-700 dark:text-gray-300">
+                                Oui, dans 90% des cas. Je maintiens un circuit d'éclairage et quelques prises fonctionnelles. Coupures générales limitées à 2-3h maximum pour raccordements principaux. Pour rénovations lourdes, je conseille parfois de libérer temporairement certaines pièces. Planning détaillé fourni avant intervention.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tarifs et Coûts -->
+            <section id="tarifs" class="mb-8">
+                <h2 class="font-heading text-2xl font-bold text-purple-600 mb-6 flex items-center">
+                    <i class="fas fa-euro-sign mr-3"></i>
+                    <span data-translate="faq-section-prices">Tarifs et Coûts</span>
+                </h2>
+                
+                <div class="space-y-4">
+                    <!-- FAQ Item 10 -->
+                    <div class="faq-item border border-gray-200 dark:border-gray-700 rounded-lg">
+                        <div class="faq-question p-4 bg-gray-50 dark:bg-slate-700 rounded-t-lg flex justify-between items-center" onclick="toggleFaq('faq10')">
+                            <h3 class="font-semibold text-gray-900 dark:text-white">
+                                Combien coûte une remise aux normes électriques ?
+                            </h3>
+                            <i class="fas fa-chevron-down faq-icon text-gray-500" id="icon-faq10"></i>
+                        </div>
+                        <div class="faq-answer" id="answer-faq10">
+                            <p class="text-gray-700 dark:text-gray-300">
+                                <strong>Mise en sécurité minimum</strong> : 1 500-3 000€ (tableau + protection différentielle). <strong>Rénovation partielle</strong> : 3 000-6 000€ (+ circuits prioritaires). <strong>Rénovation complète</strong> : 80-120€/m² selon complexité. Facteurs de prix : accessibilité, nombre de circuits, finitions souhaitées. Devis gratuit détaillé avec plusieurs options.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 11 -->
+                    <div class="faq-item border border-gray-200 dark:border-gray-700 rounded-lg">
+                        <div class="faq-question p-4 bg-gray-50 dark:bg-slate-700 rounded-t-lg flex justify-between items-center" onclick="toggleFaq('faq11')">
+                            <h3 class="font-semibold text-gray-900 dark:text-white">
+                                Vos tarifs incluent-ils la fourniture du matériel ?
+                            </h3>
+                            <i class="fas fa-chevron-down faq-icon text-gray-500" id="icon-faq11"></i>
+                        </div>
+                        <div class="faq-answer" id="answer-faq11">
+                            <p class="text-gray-700 dark:text-gray-300">
+                                Oui, tous mes devis incluent fourniture et pose. Je travaille avec des matériaux de qualité professionnelle : Legrand, Schneider Electric, Hager. Pas de mauvaises surprises ! TVA 10% applicable pour logements > 2 ans. Facilités de paiement en 2-3 fois sans frais pour travaux > 1 000€.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 12 -->
+                    <div class="faq-item border border-gray-200 dark:border-gray-700 rounded-lg">
+                        <div class="faq-question p-4 bg-gray-50 dark:bg-slate-700 rounded-t-lg flex justify-between items-center" onclick="toggleFaq('faq12')">
+                            <h3 class="font-semibold text-gray-900 dark:text-white">
+                                Existe-t-il des aides pour la rénovation électrique ?
+                            </h3>
+                            <i class="fas fa-chevron-down faq-icon text-gray-500" id="icon-faq12"></i>
+                        </div>
+                        <div class="faq-answer" id="answer-faq12">
+                            <p class="text-gray-700 dark:text-gray-300">
+                                Oui ! <strong>MaPrimeRénov'</strong> (jusqu'à 1 200€), <strong>Éco-PTZ</strong> (prêt à taux zéro), <strong>Aides ANAH</strong> sous conditions de ressources, <strong>TVA réduite 5,5%</strong> pour rénovation énergétique. Je vous accompagne dans vos démarches et établis les attestations nécessaires. Qualification RGE en cours pour accès à toutes les aides.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Matériel et Équipements -->
+            <section id="materiel" class="mb-8">
+                <h2 class="font-heading text-2xl font-bold text-green-600 mb-6 flex items-center">
+                    <i class="fas fa-tools mr-3"></i>
+                    <span data-translate="faq-section-equipment">Matériel et Équipements</span>
+                </h2>
+                
+                <div class="space-y-4">
+                    <!-- FAQ Item 13 -->
+                    <div class="faq-item border border-gray-200 dark:border-gray-700 rounded-lg">
+                        <div class="faq-question p-4 bg-gray-50 dark:bg-slate-700 rounded-t-lg flex justify-between items-center" onclick="toggleFaq('faq13')">
+                            <h3 class="font-semibold text-gray-900 dark:text-white">
+                                Quelles marques de matériel électrique utilisez-vous ?
+                            </h3>
+                            <i class="fas fa-chevron-down faq-icon text-gray-500" id="icon-faq13"></i>
+                        </div>
+                        <div class="faq-answer" id="answer-faq13">
+                            <p class="text-gray-700 dark:text-gray-300">
+                                J'utilise exclusivement des marques professionnelles reconnues : <strong>Legrand</strong> (gamme Mosaic/Céliane), <strong>Schneider Electric</strong> (Resi9), <strong>Hager</strong> pour tableaux électriques. Garantie constructeur longue durée, service après-vente national, facilité de maintenance. Ces marques offrent 15-20 ans de durabilité minimum avec un entretien approprié.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 14 -->
+                    <div class="faq-item border border-gray-200 dark:border-gray-700 rounded-lg">
+                        <div class="faq-question p-4 bg-gray-50 dark:bg-slate-700 rounded-t-lg flex justify-between items-center" onclick="toggleFaq('faq14')">
+                            <h3 class="font-semibold text-gray-900 dark:text-white">
+                                Quelle est la durée de vie des câbles électriques ?
+                            </h3>
+                            <i class="fas fa-chevron-down faq-icon text-gray-500" id="icon-faq14"></i>
+                        </div>
+                        <div class="faq-answer" id="answer-faq14">
+                            <p class="text-gray-700 dark:text-gray-300">
+                                Les câbles modernes (cuivre, gaine ICTA) ont une durée de vie de <strong>30-40 ans</strong> en usage normal. Facteurs d'usure : humidité, chaleur excessive, surcharges répétées. J'utilise uniquement du cuivre (jamais d'aluminium) avec protection adaptée. Signes de vieillissement : gaines friables, oxydation des connexions, échauffements anormaux.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 15 -->
+                    <div class="faq-item border border-gray-200 dark:border-gray-700 rounded-lg">
+                        <div class="faq-question p-4 bg-gray-50 dark:bg-slate-700 rounded-t-lg flex justify-between items-center" onclick="toggleFaq('faq15')">
+                            <h3 class="font-semibold text-gray-900 dark:text-white">
+                                Dois-je choisir des prises avec USB intégrées ?
+                            </h3>
+                            <i class="fas fa-chevron-down faq-icon text-gray-500" id="icon-faq15"></i>
+                        </div>
+                        <div class="faq-answer" id="answer-faq15">
+                            <p class="text-gray-700 dark:text-gray-300">
+                                Je recommande les prises USB dans les chambres et salon pour la praticité. Attention : les normes USB évoluent rapidement (USB-A, USB-C, charges rapides). Les prises classiques avec adaptateurs restent plus flexibles. Compromis idéal : 2-3 prises USB aux endroits stratégiques + prises classiques partout ailleurs.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chauffage et Équipements Spéciaux -->
+            <section id="chauffage" class="mb-8">
+                <h2 class="font-heading text-2xl font-bold text-orange-600 mb-6 flex items-center">
+                    <i class="fas fa-fire mr-3"></i>
+                    <span data-translate="faq-section-heating">Chauffage et Équipements Spéciaux</span>
+                </h2>
+                
+                <div class="space-y-4">
+                    <!-- FAQ Item 16 -->
+                    <div class="faq-item border border-gray-200 dark:border-gray-700 rounded-lg">
+                        <div class="faq-question p-4 bg-gray-50 dark:bg-slate-700 rounded-t-lg flex justify-between items-center" onclick="toggleFaq('faq16')">
+                            <h3 class="font-semibold text-gray-900 dark:text-white">
+                                Quel type de ballon d'eau chaude électrique choisir ?
+                            </h3>
+                            <i class="fas fa-chevron-down faq-icon text-gray-500" id="icon-faq16"></i>
+                        </div>
+                        <div class="faq-answer" id="answer-faq16">
+                            <p class="text-gray-700 dark:text-gray-300">
+                                <strong>100L</strong> : 1-2 personnes. <strong>150L</strong> : 2-3 personnes. <strong>200L</strong> : 3-4 personnes. <strong>300L</strong> : 4-6 personnes. Je recommande Atlantic, Thermor, Chaffoteaux. <strong>Stéatite</strong> (résistance protégée) pour eau calcaire, <strong>blindé</strong> pour eau douce. Installation heures creuses obligatoire. Durée de vie : 10-15 ans. Tarif pose : 200-400€ selon accessibilité.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 17 -->
+                    <div class="faq-item border border-gray-200 dark:border-gray-700 rounded-lg">
+                        <div class="faq-question p-4 bg-gray-50 dark:bg-slate-700 rounded-t-lg flex justify-between items-center" onclick="toggleFaq('faq17')">
+                            <h3 class="font-semibold text-gray-900 dark:text-white">
+                                Pouvez-vous raccorder une pompe à chaleur ?
+                            </h3>
+                            <i class="fas fa-chevron-down faq-icon text-gray-500" id="icon-faq17"></i>
+                        </div>
+                        <div class="faq-answer" id="answer-faq17">
+                            <p class="text-gray-700 dark:text-gray-300">
+                                Oui, je réalise tous les raccordements électriques : <strong>PAC air/air</strong> (climatisation réversible), <strong>PAC air/eau</strong> (chauffage central), <strong>PAC géothermique</strong>. Installation triphasée souvent nécessaire (15-20 kW). Je vérifie la compatibilité de votre installation, pose le tableau divisionnaire dédié, et effectue tous les raccordements. Travail en coordination avec votre frigoriste.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 18 -->
+                    <div class="faq-item border border-gray-200 dark:border-gray-700 rounded-lg">
+                        <div class="faq-question p-4 bg-gray-50 dark:bg-slate-700 rounded-t-lg flex justify-between items-center" onclick="toggleFaq('faq18')">
+                            <h3 class="font-semibold text-gray-900 dark:text-white">
+                                Faut-il prévoir du triphasé pour les gros équipements ?
+                            </h3>
+                            <i class="fas fa-chevron-down faq-icon text-gray-500" id="icon-faq18"></i>
+                        </div>
+                        <div class="faq-answer" id="answer-faq18">
+                            <p class="text-gray-700 dark:text-gray-300">
+                                <strong>Monophasé suffisant</strong> : jusqu'à 12 kW (chauffage classique, PAC petite puissance). <strong>Triphasé recommandé</strong> : PAC > 12 kW, ateliers, gros électroménager professionnel. <strong>Triphasé obligatoire</strong> : > 18 kW. Je vérifie la disponibilité ENEDIS dans votre secteur. Changement possible mais coûteux (500-1500€). Évaluation gratuite de vos besoins.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact CTA -->
+            <div class="mt-12 p-6 bg-gradient-to-r from-red-50 to-blue-50 dark:from-red-900/20 dark:to-blue-900/20 rounded-lg">
+                <div class="text-center">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">
+                        Vous ne trouvez pas la réponse à votre question ?
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        N'hésitez pas à nous contacter directement. Nous sommes là pour vous aider !
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="tel:+33670614176" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-all inline-flex items-center justify-center">
+                            <i class="fas fa-phone mr-2"></i>
+                            <span>Appeler maintenant</span>
+                        </a>
+                        <a href="index.html#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all inline-flex items-center justify-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span>Formulaire de contact</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+                <div class="flex flex-wrap gap-4">
+                    <a href="index.html" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg transition-all">
+                        <i class="fas fa-home mr-2"></i>
+                        <span>Accueil</span>
+                    </a>
+                    <a href="realisations.html" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg transition-all">
+                        Réalisations
+                    </a>
+                    <a href="mentions-legales.html" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg transition-all">
+                        Mentions légales
+                    </a>
+                    <a href="cgv.html" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg transition-all" data-translate="footer-cgv">
+                        CGV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-8 mt-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2024 R.ELEC - Patrick REGNA. Tous droits réservés.</p>
+            <p class="mt-2 text-sm opacity-80">Électricien professionnel à Morlaix - Finistère</p>
+        </div>
+    </footer>
+
+    <script>
+        // ================================
+        // 🌐 SYSTÈME DE TRADUCTION
+        // ================================
+        
+        const translations = {
+            fr: {
+                // Meta and titles
+                'meta-description-faq': 'FAQ - Questions fréquemment posées sur les services électriques de R.ELEC Patrick REGNA à Morlaix.',
+                'title-faq': 'FAQ - Questions Fréquentes - R.ELEC Patrick REGNA',
+                
+                // Navigation and UI
+                'current-lang': 'FR',
+                'lang-fr': 'Français',
+                'lang-en': 'English', 
+                'lang-es': 'Español',
+                'lang-br': 'Brezhoneg',
+                'back-to-site': 'Retour au site',
+                'footer-cgv': 'CGV',
+                
+                // Main content
+                'faq-main-title': 'Questions Fréquentes',
+                'faq-subtitle': 'Toutes les réponses à vos questions sur l\'électricité',
+                'faq-description': 'Ici vous trouverez les réponses aux questions les plus fréquemment posées par nos clients concernant la sécurité électrique, les normes, les prix et nos services.',
+                
+                // Quick navigation
+                'faq-quick-nav': 'Navigation rapide :',
+                'faq-nav-security': 'Sécurité',
+                'faq-nav-standards': 'Normes',
+                'faq-nav-delays': 'Délais',
+                'faq-nav-prices': 'Tarifs',
+                'faq-nav-equipment': 'Matériel',
+                'faq-nav-heating': 'Chauffage',
+                
+                // Section titles
+                'faq-section-security': 'Sécurité Électrique',
+                'faq-section-standards': 'Normes et Réglementations',
+                'faq-section-delays': 'Délais d\'Intervention',
+                'faq-section-prices': 'Tarifs et Coûts',
+                'faq-section-equipment': 'Matériel et Équipements',
+                'faq-section-heating': 'Chauffage et Équipements Spéciaux'
+            },
+            en: {
+                // Meta and titles
+                'meta-description-faq': 'FAQ - Frequently asked questions about R.ELEC Patrick REGNA electrical services in Morlaix.',
+                'title-faq': 'FAQ - Frequently Asked Questions - R.ELEC Patrick REGNA',
+                
+                // Navigation and UI
+                'current-lang': 'EN',
+                'lang-fr': 'Français',
+                'lang-en': 'English', 
+                'lang-es': 'Español',
+                'lang-br': 'Brezhoneg',
+                'back-to-site': 'Back to site',
+                'footer-cgv': 'Terms of sale',
+                
+                // Main content
+                'faq-main-title': 'Frequently Asked Questions',
+                'faq-subtitle': 'All answers to your electrical questions',
+                'faq-description': 'Here you will find answers to the most frequently asked questions by our customers about electrical safety, standards, prices and our services.'
+            },
+            es: {
+                // Meta and titles
+                'meta-description-faq': 'FAQ - Preguntas frecuentes sobre los servicios eléctricos de R.ELEC Patrick REGNA en Morlaix.',
+                'title-faq': 'FAQ - Preguntas Frecuentes - R.ELEC Patrick REGNA',
+                
+                // Navigation and UI
+                'current-lang': 'ES',
+                'lang-fr': 'Français',
+                'lang-en': 'English', 
+                'lang-es': 'Español',
+                'lang-br': 'Brezhoneg',
+                'back-to-site': 'Volver al sitio',
+                'footer-cgv': 'CGV',
+                
+                // Main content
+                'faq-main-title': 'Preguntas Frecuentes',
+                'faq-subtitle': 'Todas las respuestas a sus preguntas sobre electricidad',
+                'faq-description': 'Aquí encontrará respuestas a las preguntas más frecuentes de nuestros clientes sobre seguridad eléctrica, normas, precios y nuestros servicios.'
+            },
+            br: {
+                // Meta and titles
+                'meta-description-faq': 'FAQ - Goulennoù alies diwar-benn servijoù elektregel R.ELEC Patrick REGNA e Montroulez.',
+                'title-faq': 'FAQ - Goulennoù Alies - R.ELEC Patrick REGNA',
+                
+                // Navigation and UI
+                'current-lang': 'BR',
+                'lang-fr': 'Français',
+                'lang-en': 'English', 
+                'lang-es': 'Español',
+                'lang-br': 'Brezhoneg',
+                'back-to-site': 'Distreiñ d\'al lec\'hienn',
+                'footer-cgv': 'CGV',
+                
+                // Main content
+                'faq-main-title': 'Goulennoù Alies',
+                'faq-subtitle': 'An holl respontoù da ho koulennoù diwar-benn an elektradelezh',
+                'faq-description': 'Amañ e kavot respontoù d\'ar goulennoù ar re vrasañ goulennet gant hon arveraded diwar-benn diogelroez elektregel, reolennoù, prezioù ha hor servijoù.'
+            }
+        };
+
+        let currentLanguage = 'fr';
+
+        // Translation function
+        function translatePage(language) {
+            if (!translations[language]) return;
+            
+            currentLanguage = language;
+            localStorage.setItem('selectedLanguage', language);
+            
+            // Update all elements with data-translate
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[language][key]) {
+                    if (element.tagName === 'META') {
+                        element.content = translations[language][key];
+                    } else {
+                        element.textContent = translations[language][key];
+                    }
+                }
+            });
+            
+            // Update page title and meta description
+            if (translations[language]['title-faq']) {
+                document.title = translations[language]['title-faq'];
+            }
+            
+            // Update language selector
+            updateLanguageSelector(language);
+        }
+
+        // Update language selector UI
+        function updateLanguageSelector(language) {
+            const flags = {
+                'fr': '🇫🇷',
+                'en': '🇬🇧', 
+                'es': '🇪🇸',
+                'br': '🏴󠁧󠁢󠁷󠁬󠁳󠁿'
+            };
+            
+            const currentFlag = document.getElementById('currentFlag');
+            const currentLang = document.getElementById('currentLang');
+            
+            if (currentFlag) currentFlag.textContent = flags[language];
+            if (currentLang) currentLang.textContent = language.toUpperCase();
+            
+            // Update selected option
+            document.querySelectorAll('.custom-language-option').forEach(option => {
+                option.classList.remove('selected');
+                if (option.dataset.lang === language) {
+                    option.classList.add('selected');
+                }
+            });
+        }
+
+        // ================================
+        // 🎯 EVENT LISTENERS
+        // ================================
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize language from localStorage or default to French
+            const savedLanguage = localStorage.getItem('selectedLanguage') || 'fr';
+            translatePage(savedLanguage);
+            
+            // Language selector functionality
+            const languageToggle = document.getElementById('languageToggle');
+            const languageDropdown = document.getElementById('languageDropdown');
+            
+            if (languageToggle && languageDropdown) {
+                languageToggle.addEventListener('click', () => {
+                    languageDropdown.classList.toggle('hidden');
+                });
+                
+                // Close dropdown when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!languageToggle.contains(e.target) && !languageDropdown.contains(e.target)) {
+                        languageDropdown.classList.add('hidden');
+                    }
+                });
+                
+                // Language option clicks
+                document.querySelectorAll('.custom-language-option').forEach(option => {
+                    option.addEventListener('click', () => {
+                        const selectedLang = option.dataset.lang;
+                        translatePage(selectedLang);
+                        languageDropdown.classList.add('hidden');
+                    });
+                });
+            }
+            
+            // FAQ functionality
+            window.toggleFaq = function(id) {
+                const answer = document.getElementById('answer-' + id);
+                const icon = document.getElementById('icon-' + id);
+                
+                if (answer && icon) {
+                    answer.classList.toggle('active');
+                    icon.classList.toggle('rotated');
+                }
+            }
+        });
+
+        // ================================
+        // 🌙 MODE SOMBRE
+        // ================================
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Dark mode
+            const savedDarkMode = localStorage.getItem('darkMode');
+            if (savedDarkMode === 'true') {
+                document.documentElement.classList.add('dark');
+            }
+
+            // Theme toggle
+            const themeToggle = document.getElementById('themeToggle');
+            themeToggle.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+            });
+        });
+    </script>
+
+</body>
+</html> 

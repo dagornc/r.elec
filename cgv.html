@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conditions Générales de Vente de R.ELEC - Prestations électriques professionnelles à Morlaix." data-translate="meta-description-cgv">
+    <title data-translate="title-cgv">Conditions Générales de Vente - R.ELEC Patrick REGNA</title>
+    <link rel="icon" type="image/jpeg" href="photos/logo.jpeg">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .font-heading {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #D32F2F 0%, #19223A 100%);
+        }
+        
+        .dark {
+            background: #191C20;
+            color: #F6F6F6;
+        }
+        
+        .dark .bg-white {
+            background: #20263A !important;
+        }
+        
+        .dark .text-gray-900 {
+            color: #F6F6F6 !important;
+        }
+        
+        .dark .text-gray-700 {
+            color: #B8BCC6 !important;
+        }
+        
+        .dark .text-gray-600 {
+            color: #9CA3AF !important;
+        }
+        
+        .dark .border-gray-200 {
+            border-color: #2A2F3A !important;
+        }
+
+        /* Language Selector Styles */
+        .custom-language-selector {
+            position: relative;
+        }
+        
+        .custom-language-button {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            min-width: 60px;
+        }
+        
+        .custom-language-options {
+            min-width: 140px;
+            border: 1px solid #e5e7eb;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .custom-language-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            color: #374151;
+        }
+        
+        .custom-language-option:hover {
+            background-color: #f3f4f6;
+        }
+        
+        .custom-language-option.selected {
+            background-color: #dbeafe;
+            color: #1d4ed8;
+        }
+        
+        .language-flag {
+            width: 20px;
+            height: 15px;
+            object-fit: cover;
+            border-radius: 2px;
+            font-size: 14px;
+            line-height: 1;
+        }
+        
+        .language-text {
+            font-size: 14px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 dark:bg-slate-900 text-gray-900 dark:text-white transition-colors duration-300">
+    
+    <!-- Header -->
+    <header class="gradient-bg text-white py-6">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <img src="photos/img-electricien.png" alt="Patrick REGNA électricien" class="h-12 w-12 object-cover rounded-lg">
+                    <div>
+                        <h1 class="font-heading font-bold text-2xl">R.ELEC</h1>
+                        <p class="text-sm opacity-90">Patrick REGNA</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <!-- Language Selector -->
+                    <div class="custom-language-selector">
+                        <button class="custom-language-button bg-white/20 hover:bg-white/30 p-2 rounded-lg transition-all" id="languageToggle" aria-label="Sélectionner la langue">
+                            <span class="language-flag" id="currentFlag">🇫🇷</span>
+                            <span class="language-text ml-1 hidden sm:inline" id="currentLang" data-translate="current-lang">FR</span>
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="custom-language-options absolute mt-2 right-0 bg-white rounded-lg shadow-lg py-2 hidden z-50" id="languageDropdown">
+                            <div class="custom-language-option selected" data-lang="fr" role="menuitem" tabindex="0">
+                                <span class="language-flag">🇫🇷</span>
+                                <span class="language-text" data-translate="lang-fr">Français</span>
+                            </div>
+                            <div class="custom-language-option" data-lang="en" role="menuitem" tabindex="0">
+                                <span class="language-flag">🇬🇧</span>
+                                <span class="language-text" data-translate="lang-en">English</span>
+                            </div>
+                            <div class="custom-language-option" data-lang="es" role="menuitem" tabindex="0">
+                                <span class="language-flag">🇪🇸</span>
+                                <span class="language-text" data-translate="lang-es">Español</span>
+                            </div>
+                            <div class="custom-language-option" data-lang="br" role="menuitem" tabindex="0">
+                                <span class="language-flag">🏴󠁧󠁢󠁷󠁬󠁳󠁿</span>
+                                <span class="language-text" data-translate="lang-br">Brezhoneg</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="themeToggle" class="bg-white/20 hover:bg-white/30 p-2 rounded-lg transition-all">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+                    
+                    <a href="index.html" class="bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-all">
+                        <i class="fas fa-arrow-left mr-2"></i>
+                        <span data-translate="back-to-site">Retour au site</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-8">
+            <div class="flex items-center mb-8">
+                <i class="fas fa-file-contract text-4xl text-green-600 mr-4"></i>
+                <div>
+                    <h1 class="font-heading text-3xl font-bold text-gray-900 dark:text-white" data-translate="cgv-main-title">
+                        Conditions Générales de Vente
+                    </h1>
+                    <p class="text-gray-600 dark:text-gray-400 mt-2" data-translate="cgv-date">
+                        En vigueur au 1er janvier 2024
+                    </p>
+                </div>
+            </div>
+            
+            <div class="prose prose-gray dark:prose-invert max-w-none">
+                
+                <!-- Préambule -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Préambule</h2>
+                    <div class="text-gray-700 dark:text-gray-300 space-y-4">
+                        <p>Les présentes Conditions Générales de Vente (CGV) s'appliquent à toutes les prestations de services effectuées par R.ELEC, représenté par Patrick REGNA, entreprise individuelle spécialisée dans les travaux d'installation électrique.</p>
+                        <p>Toute commande implique l'acceptation sans réserve des présentes conditions générales de vente.</p>
+                    </div>
+                </section>
+
+                <!-- Article 1 -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Article 1 - Identification du prestataire</h2>
+                    <div class="bg-gray-50 dark:bg-slate-700 p-6 rounded-lg">
+                        <div class="space-y-2 text-gray-700 dark:text-gray-300">
+                            <p><strong>Dénomination :</strong> R.ELEC</p>
+                            <p><strong>Gérant :</strong> Patrick REGNA</p>
+                            <p><strong>Forme juridique :</strong> Entrepreneur individuel</p>
+                            <p><strong>Activité :</strong> Installation électrique (Code APE : 4321A)</p>
+                            <p><strong>Adresse :</strong> Morlaix, 29600, France</p>
+                            <p><strong>Téléphone :</strong> 06 70 61 41 76</p>
+                            <p><strong>Email :</strong> contact@r-elec-morlaix.fr</p>
+                            <p><strong>SIRET :</strong> [À compléter]</p>
+                            <p><strong>TVA Intracommunautaire :</strong> [À compléter]</p>
+                            <p><strong>Assurance professionnelle :</strong> [Détails de l'assurance décennale]</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Article 2 -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Article 2 - Domaine d'application</h2>
+                    <div class="text-gray-700 dark:text-gray-300 space-y-4">
+                        <p>Les présentes CGV s'appliquent à toutes les prestations suivantes :</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li>Installation électrique neuve et rénovation</li>
+                            <li>Dépannage et maintenance électrique</li>
+                            <li>Mise aux normes des installations électriques</li>
+                            <li>Installation d'éclairage LED</li>
+                            <li>Installation de systèmes domotiques</li>
+                            <li>Installation de bornes de recharge électrique</li>
+                            <li>Installation et remplacement de chauffe-eau électriques</li>
+                            <li>Installation de pompes à chaleur air/air</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Article 3 -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Article 3 - Devis et commandes</h2>
+                    <div class="text-gray-700 dark:text-gray-300 space-y-4">
+                        <h3 class="text-lg font-semibold">3.1 Établissement du devis</h3>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li>Tout devis est gratuit et établi après visite sur site</li>
+                            <li>Les devis sont valables 30 jours à compter de leur émission</li>
+                            <li>Les prix sont exprimés en euros TTC</li>
+                            <li>Toute modification du devis initial fera l'objet d'un avenant</li>
+                        </ul>
+                        
+                        <h3 class="text-lg font-semibold mt-6">3.2 Acceptation de la commande</h3>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li>La commande est confirmée par la signature du devis par le client</li>
+                            <li>Aucune prestation ne débute sans accord écrit du client</li>
+                            <li>Les modifications en cours de chantier doivent faire l'objet d'un accord écrit</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Article 4 -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Article 4 - Prix et conditions de paiement</h2>
+                    <div class="text-gray-700 dark:text-gray-300 space-y-4">
+                        <h3 class="text-lg font-semibold">4.1 Prix</h3>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li>Les prix sont fermes et définitifs, sauf mention contraire</li>
+                            <li>Ils comprennent la main-d'œuvre, les fournitures et les déplacements dans un rayon de 15 km</li>
+                            <li>Au-delà de 15 km, les frais de déplacement seront facturés en sus</li>
+                            <li>La TVA applicable est de 20% (10% pour certains travaux de rénovation)</li>
+                        </ul>
+                        
+                        <h3 class="text-lg font-semibold mt-6">4.2 Modalités de paiement</h3>
+                        <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                            <ul class="list-disc list-inside space-y-2">
+                                <li><strong>Acompte :</strong> 30% à la commande pour les travaux > 500€</li>
+                                <li><strong>Solde :</strong> À la fin des travaux, après réception</li>
+                                <li><strong>Moyens de paiement :</strong> Espèces, chèque, virement bancaire</li>
+                                <li><strong>Délai de paiement :</strong> 30 jours à compter de la facture</li>
+                            </ul>
+                        </div>
+                        
+                        <h3 class="text-lg font-semibold mt-6">4.3 Retard de paiement</h3>
+                        <p>En cas de retard de paiement, des pénalités de 3 fois le taux d'intérêt légal seront appliquées, ainsi qu'une indemnité forfaitaire de 40€ pour frais de recouvrement.</p>
+                    </div>
+                </section>
+
+                <!-- Article 5 -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Article 5 - Délais d'exécution</h2>
+                    <div class="text-gray-700 dark:text-gray-300 space-y-4">
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li>Les délais d'intervention sont donnés à titre indicatif</li>
+                            <li>Pour les urgences : intervention dans les 2 heures (selon disponibilité)</li>
+                            <li>Pour les travaux programmés : délai convenu lors de la commande</li>
+                            <li>Les retards dus à des causes extérieures (intempéries, cas de force majeure) ne peuvent engager notre responsabilité</li>
+                            <li>Le client sera informé de tout retard prévisible</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Article 6 -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Article 6 - Exécution des prestations</h2>
+                    <div class="text-gray-700 dark:text-gray-300 space-y-4">
+                        <h3 class="text-lg font-semibold">6.1 Obligations du prestataire</h3>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li>Réaliser les travaux selon les règles de l'art et les normes en vigueur (NF C 15-100)</li>
+                            <li>Utiliser des matériaux conformes aux normes françaises et européennes</li>
+                            <li>Respecter les délais convenus</li>
+                            <li>Nettoyer le chantier en fin d'intervention</li>
+                            <li>Fournir les certificats de conformité requis</li>
+                        </ul>
+                        
+                        <h3 class="text-lg font-semibold mt-6">6.2 Obligations du client</h3>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li>Faciliter l'accès au lieu d'intervention</li>
+                            <li>Fournir l'électricité et l'eau nécessaires aux travaux</li>
+                            <li>Signaler tout défaut apparent dans les 48h</li>
+                            <li>Respecter les consignes de sécurité données</li>
+                            <li>Procéder au paiement selon les modalités convenues</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Article 7 -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Article 7 - Garanties</h2>
+                    <div class="text-gray-700 dark:text-gray-300 space-y-4">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                                <h4 class="font-semibold text-green-800 dark:text-green-300 mb-2">
+                                    <i class="fas fa-tools mr-2"></i>Garantie de parfait achèvement
+                                </h4>
+                                <p class="text-sm">1 an à compter de la réception des travaux pour tous défauts signalés</p>
+                            </div>
+                            
+                            <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                                <h4 class="font-semibold text-blue-800 dark:text-blue-300 mb-2">
+                                    <i class="fas fa-shield-alt mr-2"></i>Garantie biennale
+                                </h4>
+                                <p class="text-sm">2 ans pour le bon fonctionnement des équipements</p>
+                            </div>
+                            
+                            <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+                                <h4 class="font-semibold text-purple-800 dark:text-purple-300 mb-2">
+                                    <i class="fas fa-home mr-2"></i>Garantie décennale
+                                </h4>
+                                <p class="text-sm">10 ans pour les dommages compromettant la solidité ou l'habitabilité</p>
+                            </div>
+                            
+                            <div class="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg">
+                                <h4 class="font-semibold text-yellow-800 dark:text-yellow-300 mb-2">
+                                    <i class="fas fa-cog mr-2"></i>Garantie constructeur
+                                </h4>
+                                <p class="text-sm">Garantie fabricant sur les équipements selon leurs conditions</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 p-4 bg-gray-50 dark:bg-slate-700 rounded-lg">
+                            <h4 class="font-semibold mb-2">Exclusions de garantie :</h4>
+                            <ul class="list-disc list-inside text-sm space-y-1">
+                                <li>Usure normale des équipements</li>
+                                <li>Défauts résultant d'un mauvais usage ou d'un défaut d'entretien</li>
+                                <li>Interventions de tiers non autorisées</li>
+                                <li>Cas de force majeure</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Article 8 -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Article 8 - Responsabilité et assurances</h2>
+                    <div class="text-gray-700 dark:text-gray-300 space-y-4">
+                        <p>R.ELEC est couverte par :</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li><strong>Assurance responsabilité civile professionnelle</strong></li>
+                            <li><strong>Assurance décennale</strong> pour tous les travaux relevant de cette garantie</li>
+                            <li><strong>Assurance dommages-ouvrage</strong> recommandée au client pour sa protection</li>
+                        </ul>
+                        <p class="mt-4">Les attestations d'assurance sont disponibles sur simple demande.</p>
+                    </div>
+                </section>
+
+                <!-- Article 9 -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Article 9 - Droit de rétractation</h2>
+                    <div class="text-gray-700 dark:text-gray-300 space-y-4">
+                        <div class="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg">
+                            <h4 class="font-semibold text-orange-800 dark:text-orange-300 mb-2">
+                                <i class="fas fa-clock mr-2"></i>Délai de rétractation
+                            </h4>
+                            <p>Conformément au Code de la consommation, vous disposez de 14 jours pour vous rétracter sans motif, sauf si :</p>
+                            <ul class="list-disc list-inside mt-2 text-sm space-y-1">
+                                <li>Les travaux ont commencé avec votre accord exprès</li>
+                                <li>Il s'agit d'une intervention d'urgence</li>
+                                <li>Les prestations sont entièrement exécutées</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Article 10 -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Article 10 - Protection des données</h2>
+                    <div class="text-gray-700 dark:text-gray-300">
+                        <p>Les données personnelles collectées sont traitées conformément à notre <a href="politique-confidentialite.html" class="text-blue-600 dark:text-blue-400 hover:underline">Politique de confidentialité</a> et au Règlement Général sur la Protection des Données (RGPD).</p>
+                    </div>
+                </section>
+
+                <!-- Article 11 -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Article 11 - Médiation et règlement des litiges</h2>
+                    <div class="text-gray-700 dark:text-gray-300 space-y-4">
+                        <h3 class="text-lg font-semibold">11.1 Médiation amiable</h3>
+                        <p>En cas de litige, nous nous engageons à rechercher une solution amiable avant toute action judiciaire.</p>
+                        
+                        <h3 class="text-lg font-semibold">11.2 Médiation de la consommation</h3>
+                        <p>Si aucun accord amiable n'est trouvé, vous pouvez saisir le médiateur de la consommation :</p>
+                        <div class="bg-gray-50 dark:bg-slate-700 p-4 rounded-lg">
+                            <p><strong>CNPM - Consommation Médiation</strong><br>
+                            27 avenue de la libération<br>
+                            42400 Saint-Chamond<br>
+                            Site web : <a href="http://www.cnpm-mediation-consommation.eu" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">www.cnpm-mediation-consommation.eu</a></p>
+                        </div>
+                        
+                        <h3 class="text-lg font-semibold">11.3 Juridiction compétente</h3>
+                        <p>À défaut de résolution amiable, les tribunaux de Brest seront seuls compétents.</p>
+                    </div>
+                </section>
+
+                <!-- Article 12 -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Article 12 - Dispositions diverses</h2>
+                    <div class="text-gray-700 dark:text-gray-300 space-y-4">
+                        <h3 class="text-lg font-semibold">12.1 Modification des CGV</h3>
+                        <p>Les présentes CGV peuvent être modifiées à tout moment. Les nouvelles conditions s'appliqueront aux commandes passées après leur mise en ligne.</p>
+                        
+                        <h3 class="text-lg font-semibold">12.2 Nullité partielle</h3>
+                        <p>Si une clause des présentes CGV était déclarée nulle, cela n'affecterait pas la validité des autres clauses.</p>
+                        
+                        <h3 class="text-lg font-semibold">12.3 Droit applicable</h3>
+                        <p>Les présentes CGV sont soumises au droit français.</p>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Contact section -->
+            <div class="mt-12 p-6 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h3 class="text-xl font-bold text-blue-900 dark:text-blue-100 mb-4">
+                    <i class="fas fa-phone mr-2"></i>Questions sur nos CGV ?
+                </h3>
+                <p class="text-blue-800 dark:text-blue-200 mb-4">
+                    Pour toute question concernant nos conditions générales de vente, n'hésitez pas à nous contacter :
+                </p>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <a href="tel:+33670614176" class="flex items-center p-3 bg-white dark:bg-slate-800 rounded-lg hover:shadow-md transition-all">
+                        <i class="fas fa-phone text-green-600 mr-3"></i>
+                        <div>
+                            <div class="font-semibold text-gray-900 dark:text-white">Téléphone</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-400">06 70 61 41 76</div>
+                        </div>
+                    </a>
+                    
+                    <a href="mailto:contact@r-elec-morlaix.fr" class="flex items-center p-3 bg-white dark:bg-slate-800 rounded-lg hover:shadow-md transition-all">
+                        <i class="fas fa-envelope text-blue-600 mr-3"></i>
+                        <div>
+                            <div class="font-semibold text-gray-900 dark:text-white">Email</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-400">contact@r-elec-morlaix.fr</div>
+                        </div>
+                    </a>
+                    
+                    <div class="flex items-center p-3 bg-white dark:bg-slate-800 rounded-lg">
+                        <i class="fas fa-map-marker-alt text-red-600 mr-3"></i>
+                        <div>
+                            <div class="font-semibold text-gray-900 dark:text-white">Adresse</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-400">Morlaix, 29600</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+                <div class="flex flex-wrap gap-4">
+                    <a href="index.html" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg transition-all">
+                        <i class="fas fa-home mr-2"></i>
+                        <span>Accueil</span>
+                    </a>
+                    <a href="mentions-legales.html" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg transition-all">
+                        Mentions légales
+                    </a>
+                    <a href="politique-confidentialite.html" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg transition-all">
+                        Politique de confidentialité
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-8 mt-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2024 R.ELEC - Patrick REGNA. Tous droits réservés.</p>
+            <p class="mt-2 text-sm opacity-80">Électricien professionnel à Morlaix - Finistère</p>
+        </div>
+    </footer>
+
+    <script>
+        // ================================
+        // 🌐 SYSTÈME DE TRADUCTION
+        // ================================
+        
+        const translations = {
+            fr: {
+                // Meta and titles
+                'meta-description-cgv': 'Conditions Générales de Vente de R.ELEC - Prestations électriques professionnelles à Morlaix.',
+                'title-cgv': 'Conditions Générales de Vente - R.ELEC Patrick REGNA',
+                
+                // Navigation and UI
+                'current-lang': 'FR',
+                'lang-fr': 'Français',
+                'lang-en': 'English', 
+                'lang-es': 'Español',
+                'lang-br': 'Brezhoneg',
+                'back-to-site': 'Retour au site',
+                
+                // Main content
+                'cgv-main-title': 'Conditions Générales de Vente',
+                'cgv-date': 'En vigueur au 1er janvier 2024'
+            },
+            
+            en: {
+                // Meta and titles
+                'meta-description-cgv': 'General Terms and Conditions of Sale of R.ELEC - Professional electrical services in Morlaix.',
+                'title-cgv': 'General Terms and Conditions of Sale - R.ELEC Patrick REGNA',
+                
+                // Navigation and UI
+                'current-lang': 'EN',
+                'lang-fr': 'Français',
+                'lang-en': 'English', 
+                'lang-es': 'Español',
+                'lang-br': 'Brezhoneg',
+                'back-to-site': 'Back to site',
+                
+                // Main content
+                'cgv-main-title': 'General Terms and Conditions of Sale',
+                'cgv-date': 'Effective January 1st, 2024'
+            },
+            
+            es: {
+                // Meta and titles
+                'meta-description-cgv': 'Condiciones Generales de Venta de R.ELEC - Servicios eléctricos profesionales en Morlaix.',
+                'title-cgv': 'Condiciones Generales de Venta - R.ELEC Patrick REGNA',
+                
+                // Navigation and UI
+                'current-lang': 'ES',
+                'lang-fr': 'Français',
+                'lang-en': 'English', 
+                'lang-es': 'Español',
+                'lang-br': 'Brezhoneg',
+                'back-to-site': 'Volver al sitio',
+                
+                // Main content
+                'cgv-main-title': 'Condiciones Generales de Venta',
+                'cgv-date': 'En vigor desde el 1 de enero de 2024'
+            },
+            
+            br: {
+                // Meta and titles
+                'meta-description-cgv': 'Divizoù Hollek Gwerzhañ R.ELEC - Servijoù tredan profesionel e Montroulez.',
+                'title-cgv': 'Divizoù Hollek Gwerzhañ - R.ELEC Patrick REGNA',
+                
+                // Navigation and UI
+                'current-lang': 'BR',
+                'lang-fr': 'Galleg',
+                'lang-en': 'Saozneg', 
+                'lang-es': 'Spagnoleg',
+                'lang-br': 'Brezhoneg',
+                'back-to-site': 'Distreiñ d\'al lec\'hienn',
+                
+                // Main content
+                'cgv-main-title': 'Divizoù Hollek Gwerzhañ',
+                'cgv-date': 'E gwir abaoe 1añ Genver 2024'
+            }
+        };
+
+        // ================================
+        // 🔧 FONCTIONS DE TRADUCTION
+        // ================================
+        
+        function translatePage(lang) {
+            const translation = translations[lang];
+            if (!translation) return;
+            
+            // Traduire tous les éléments avec data-translate
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translation[key]) {
+                    // Pour les meta descriptions
+                    if (element.tagName === 'META') {
+                        element.setAttribute('content', translation[key]);
+                    }
+                    // Pour les titres
+                    else if (element.tagName === 'TITLE') {
+                        element.textContent = translation[key];
+                    }
+                    // Pour les autres éléments
+                    else {
+                        element.textContent = translation[key];
+                    }
+                }
+            });
+            
+            // Mettre à jour l'attribut lang du document
+            document.documentElement.lang = lang === 'br' ? 'br' : lang;
+        }
+
+        // ================================
+        // 🎯 GESTION DU SÉLECTEUR DE LANGUE
+        // ================================
+        
+        function initLanguageSelector() {
+            const languageToggle = document.getElementById('languageToggle');
+            const languageDropdown = document.getElementById('languageDropdown');
+            const currentFlag = document.getElementById('currentFlag');
+            const languageOptions = document.querySelectorAll('.custom-language-option');
+            
+            if (!languageToggle || !languageDropdown) return;
+            
+            // Charger la langue depuis l'URL ou localStorage, défaut français
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlLang = urlParams.get('lang');
+            const savedLang = localStorage.getItem('selectedLanguage');
+            const initialLang = urlLang || savedLang || 'fr';
+            
+            // Définir les drapeaux pour chaque langue
+            const flagMap = {
+                'fr': '🇫🇷',
+                'en': '🇬🇧', 
+                'es': '🇪🇸',
+                'br': '🏴󠁧󠁢󠁷󠁬󠁳󠁿'
+            };
+
+            // Fonction pour mettre à jour l'affichage du sélecteur
+            function updateLanguageDisplay(lang) {
+                if (currentFlag && flagMap[lang]) {
+                    currentFlag.textContent = flagMap[lang];
+                }
+                
+                // Mettre à jour les classes selected
+                languageOptions.forEach(option => {
+                    const optionLang = option.getAttribute('data-lang');
+                    if (optionLang === lang) {
+                        option.classList.add('selected');
+                    } else {
+                        option.classList.remove('selected');
+                    }
+                });
+            }
+
+            // Initialiser avec la langue par défaut
+            updateLanguageDisplay(initialLang);
+            translatePage(initialLang);
+            localStorage.setItem('selectedLanguage', initialLang);
+
+            // Toggle du dropdown
+            languageToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                languageDropdown.classList.toggle('hidden');
+            });
+
+            // Fermer le dropdown en cliquant ailleurs
+            document.addEventListener('click', (e) => {
+                if (!languageToggle.contains(e.target) && !languageDropdown.contains(e.target)) {
+                    languageDropdown.classList.add('hidden');
+                }
+            });
+
+            // Gestion du changement de langue
+            languageOptions.forEach(option => {
+                option.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const selectedLang = option.getAttribute('data-lang');
+                    
+                    updateLanguageDisplay(selectedLang);
+                    translatePage(selectedLang);
+                    localStorage.setItem('selectedLanguage', selectedLang);
+                    languageDropdown.classList.add('hidden');
+                });
+
+                // Support clavier
+                option.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        option.click();
+                    }
+                });
+            });
+        }
+
+        // ================================
+        // 🌙 GESTION DU MODE SOMBRE
+        // ================================
+        
+        function initDarkMode() {
+            const savedDarkMode = localStorage.getItem('darkMode');
+            if (savedDarkMode === 'true') {
+                document.documentElement.classList.add('dark');
+            }
+
+            const themeToggle = document.getElementById('themeToggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    document.documentElement.classList.toggle('dark');
+                    localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+                });
+            }
+        }
+
+        // ================================
+        // 🚀 INITIALISATION
+        // ================================
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            initLanguageSelector();
+            initDarkMode();
+        });
+    </script>
+
+</body>
+</html>

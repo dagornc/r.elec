@@ -1,0 +1,61 @@
+# Robots.txt pour ElectroMorlaix
+# Site web professionnel d'électricien à Morlaix
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.electromorlaix.fr/sitemap.xml
+
+# Interdire l'indexation des fichiers de tests et documentation
+Disallow: /tests.html
+Disallow: /README.md
+Disallow: /*.json
+
+# Permettre l'indexation des ressources importantes
+Allow: /photos/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.webp
+Allow: /*.svg
+
+# Optimisations pour les crawlers
+Crawl-delay: 1
+
+# Google Bot spécifique
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing Bot spécifique  
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Interdire les bots de spam
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# Permettre l'accès aux réseaux sociaux
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Infos supplémentaires
+# Site: https://www.electromorlaix.fr
+# Contact: contact@electromorlaix.fr
+# Dernière mise à jour: 2025-01-08 

@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Réalisations - Galerie photo des travaux électriques réalisés par R.ELEC Patrick REGNA à Morlaix." data-translate="meta-description-realisations">
+    <title data-translate="title-realisations">Réalisations - Travaux Électriques - R.ELEC Patrick REGNA</title>
+    <link rel="icon" type="image/jpeg" href="photos/logo.jpeg">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .font-heading {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #D32F2F 0%, #19223A 100%);
+        }
+        
+        .dark {
+            background: #191C20;
+            color: #F6F6F6;
+        }
+        
+        .dark .bg-white {
+            background: #20263A !important;
+        }
+        
+        .dark .text-gray-900 {
+            color: #F6F6F6 !important;
+        }
+        
+        .dark .text-gray-700 {
+            color: #B8BCC6 !important;
+        }
+        
+        .dark .text-gray-600 {
+            color: #9CA3AF !important;
+        }
+        
+        .dark .border-gray-200 {
+            border-color: #2A2F3A !important;
+        }
+
+        /* Gallery Styles */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .dark .project-card {
+            background: #20263A;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+        
+        .dark .project-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+        
+        .category-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .category-renovation { background: linear-gradient(45deg, #D32F2F, #F44336); }
+        .category-installation { background: linear-gradient(45deg, #2E7D32, #4CAF50); }
+        .category-domotique { background: linear-gradient(45deg, #1976D2, #2196F3); }
+        .category-chauffage { background: linear-gradient(45deg, #F57C00, #FF9800); }
+        .category-securite { background: linear-gradient(45deg, #7B1FA2, #9C27B0); }
+
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            position: relative;
+        }
+        
+        .modal-image {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .modal-close:hover {
+            color: #D32F2F;
+        }
+
+        /* Filter Styles */
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            border-radius: 25px;
+            border: 2px solid #D32F2F;
+            background: transparent;
+            color: #D32F2F;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: #D32F2F;
+            color: white;
+        }
+        
+        .dark .filter-btn {
+            border-color: #F44336;
+            color: #F44336;
+        }
+        
+        .dark .filter-btn.active,
+        .dark .filter-btn:hover {
+            background: #F44336;
+            color: white;
+        }
+
+        /* Language Selector Styles */
+        .custom-language-selector {
+            position: relative;
+        }
+        
+        .custom-language-button {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            min-width: 60px;
+        }
+        
+        .custom-language-options {
+            min-width: 140px;
+            border: 1px solid #e5e7eb;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .custom-language-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            color: #374151;
+        }
+        
+        .custom-language-option:hover {
+            background-color: #f3f4f6;
+        }
+        
+        .custom-language-option.selected {
+            background-color: #dbeafe;
+            color: #1d4ed8;
+        }
+        
+        .language-flag {
+            width: 20px;
+            height: 15px;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 dark:bg-slate-900 text-gray-900 dark:text-white transition-colors duration-300">
+    
+    <!-- Header -->
+    <header class="gradient-bg text-white py-6">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <img src="photos/img-electricien.png" alt="Patrick REGNA électricien" class="h-12 w-12 object-cover rounded-lg">
+                    <div>
+                        <h1 class="font-heading font-bold text-2xl">R.ELEC</h1>
+                        <p class="text-sm opacity-90">Patrick REGNA</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <!-- Language Selector -->
+                    <div class="custom-language-selector">
+                        <button class="custom-language-button bg-white/20 hover:bg-white/30 p-2 rounded-lg transition-all" id="languageToggle" aria-label="Sélectionner la langue">
+                            <span class="language-flag" id="currentFlag">🇫🇷</span>
+                            <span class="language-text ml-1 hidden sm:inline" id="currentLang" data-translate="current-lang">FR</span>
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="custom-language-options absolute mt-2 right-0 bg-white rounded-lg shadow-lg py-2 hidden z-50" id="languageDropdown">
+                            <div class="custom-language-option selected" data-lang="fr" role="menuitem" tabindex="0">
+                                <span class="language-flag">🇫🇷</span>
+                                <span data-translate="lang-fr">Français</span>
+                            </div>
+                            <div class="custom-language-option" data-lang="en" role="menuitem" tabindex="0">
+                                <span class="language-flag">🇬🇧</span>
+                                <span data-translate="lang-en">English</span>
+                            </div>
+                            <div class="custom-language-option" data-lang="es" role="menuitem" tabindex="0">
+                                <span class="language-flag">🇪🇸</span>
+                                <span data-translate="lang-es">Español</span>
+                            </div>
+                            <div class="custom-language-option" data-lang="br" role="menuitem" tabindex="0">
+                                <img src="photos/drapeau_breton.png" alt="Drapeau breton" class="language-flag">
+                                <span data-translate="lang-br">Brezhoneg</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="themeToggle" class="bg-white/20 hover:bg-white/30 p-2 rounded-lg transition-all">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+                    
+                    <a href="index.html" class="bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-all">
+                        <i class="fas fa-arrow-left mr-2"></i>
+                        <span data-translate="back-to-site">Retour au site</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-8">
+            <div class="flex items-center mb-8">
+                <i class="fas fa-camera text-4xl text-blue-600 mr-4"></i>
+                <div>
+                    <h1 class="font-heading text-3xl font-bold text-gray-900 dark:text-white" data-translate="realizations-main-title">
+                        Nos Réalisations
+                    </h1>
+                    <p class="text-gray-600 dark:text-gray-400 mt-2" data-translate="realizations-subtitle">
+                        Découvrez nos travaux électriques réalisés chez nos clients à Morlaix et environs
+                    </p>
+                </div>
+            </div>
+
+            <!-- Statistics -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8 p-6 bg-gradient-to-r from-blue-50 to-red-50 dark:from-blue-900/20 dark:to-red-900/20 rounded-lg">
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-red-600 dark:text-red-400">150+</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-300">Rénovations</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-green-600 dark:text-green-400">300+</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-300">Installations</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-blue-600 dark:text-blue-400">50+</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-300">Systèmes domotiques</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-orange-600 dark:text-orange-400">100%</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-300">Satisfaction client</div>
+                </div>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Tous les projets</button>
+                <button class="filter-btn" data-filter="renovation">Rénovations</button>
+                <button class="filter-btn" data-filter="installation">Installations</button>
+                <button class="filter-btn" data-filter="domotique">Domotique</button>
+                <button class="filter-btn" data-filter="chauffage">Chauffage</button>
+                <button class="filter-btn" data-filter="securite">Sécurité</button>
+            </div>
+
+            <!-- Gallery -->
+            <div class="gallery-grid" id="gallery">
+                
+                <!-- Projet 1: Rénovation complète -->
+                <div class="project-card" data-category="renovation">
+                    <div class="relative">
+                        <img src="photos/img-electricien.png" alt="Rénovation tableau électrique" class="project-image" onclick="openModal(this)">
+                        <div class="category-badge category-renovation">Rénovation</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-2">
+                            Rénovation tableau électrique
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">
+                            Remplacement complet d'un tableau obsolète par un tableau moderne aux normes NF C 15-100. Maison de 120m² à Morlaix.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Durée: 2 jours</span>
+                            <span class="text-sm font-semibold text-green-600 dark:text-green-400">2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 2: Installation domotique -->
+                <div class="project-card" data-category="domotique">
+                    <div class="relative">
+                        <img src="photos/logo.jpeg" alt="Système domotique intelligent" class="project-image" onclick="openModal(this)">
+                        <div class="category-badge category-domotique">Domotique</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-2">
+                            Maison connectée
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">
+                            Installation complète d'un système domotique : éclairage intelligent, volets automatisés, chauffage connecté.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Durée: 3 jours</span>
+                            <span class="text-sm font-semibold text-green-600 dark:text-green-400">2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 3: Installation chauffage -->
+                <div class="project-card" data-category="chauffage">
+                    <div class="relative">
+                        <img src="photos/img-electricien.png" alt="Installation pompe à chaleur" class="project-image" onclick="openModal(this)">
+                        <div class="category-badge category-chauffage">Chauffage</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-2">
+                            Raccordement pompe à chaleur
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">
+                            Raccordement électrique d'une PAC air/eau 16kW avec tableau divisionnaire dédié et passage en triphasé.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Durée: 1 jour</span>
+                            <span class="text-sm font-semibold text-green-600 dark:text-green-400">2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 4: Installation neuve -->
+                <div class="project-card" data-category="installation">
+                    <div class="relative">
+                        <img src="photos/logo.jpeg" alt="Installation électrique neuve" class="project-image" onclick="openModal(this)">
+                        <div class="category-badge category-installation">Installation</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-2">
+                            Maison neuve 150m²
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">
+                            Installation électrique complète d'une maison neuve avec tableau HAGER, prises Legrand Céliane, éclairages LED.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Durée: 5 jours</span>
+                            <span class="text-sm font-semibold text-green-600 dark:text-green-400">2023</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 5: Sécurité -->
+                <div class="project-card" data-category="securite">
+                    <div class="relative">
+                        <img src="photos/img-electricien.png" alt="Système de sécurité" class="project-image" onclick="openModal(this)">
+                        <div class="category-badge category-securite">Sécurité</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-2">
+                            Mise en sécurité urgente
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">
+                            Remplacement d'urgence d'un tableau vétuste présentant des risques d'incendie. Intervention dans les 2h.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Durée: 4 heures</span>
+                            <span class="text-sm font-semibold text-green-600 dark:text-green-400">2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 6: Rénovation partielle -->
+                <div class="project-card" data-category="renovation">
+                    <div class="relative">
+                        <img src="photos/logo.jpeg" alt="Rénovation cuisine" class="project-image" onclick="openModal(this)">
+                        <div class="category-badge category-renovation">Rénovation</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-2">
+                            Rénovation électrique cuisine
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">
+                            Ajout de circuits spécialisés pour électroménager, prises 32A pour plaques induction, éclairage sous-meubles LED.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Durée: 1 jour</span>
+                            <span class="text-sm font-semibold text-green-600 dark:text-green-400">2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 7: Installation borne -->
+                <div class="project-card" data-category="installation">
+                    <div class="relative">
+                        <img src="photos/img-electricien.png" alt="Borne de recharge" class="project-image" onclick="openModal(this)">
+                        <div class="category-badge category-installation">Installation</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-2">
+                            Borne recharge véhicule électrique
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">
+                            Installation borne Wallbox 7,4kW avec protection différentielle dédiée et câblage renforcé depuis tableau.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Durée: 3 heures</span>
+                            <span class="text-sm font-semibold text-green-600 dark:text-green-400">2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 8: Chauffage eau chaude -->
+                <div class="project-card" data-category="chauffage">
+                    <div class="relative">
+                        <img src="photos/logo.jpeg" alt="Ballon eau chaude" class="project-image" onclick="openModal(this)">
+                        <div class="category-badge category-chauffage">Chauffage</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-2">
+                            Remplacement ballon eau chaude
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">
+                            Installation ballon thermodynamique 200L Atlantic avec contacteur heures creuses et groupe de sécurité.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Durée: 2 heures</span>
+                            <span class="text-sm font-semibold text-green-600 dark:text-green-400">2023</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Testimonials Section -->
+            <div class="mt-16 p-6 bg-gradient-to-r from-blue-50 to-red-50 dark:from-blue-900/20 dark:to-red-900/20 rounded-lg">
+                <h3 class="text-2xl font-bold text-center text-gray-900 dark:text-white mb-8">
+                    Témoignages de nos clients
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white dark:bg-slate-700 p-6 rounded-lg shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 text-lg">★★★★★</div>
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 italic mb-4">
+                            "Intervention rapide et professionnelle pour la rénovation de notre tableau électrique. Patrick a su nous conseiller et respecter les délais annoncés."
+                        </p>
+                        <div class="text-sm text-gray-500 dark:text-gray-400">
+                            - Marie et Jean, Morlaix
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-slate-700 p-6 rounded-lg shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 text-lg">★★★★★</div>
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 italic mb-4">
+                            "Installation de notre système domotique parfaitement réalisée. La formation nous a permis de rapidement maîtriser tous les équipements."
+                        </p>
+                        <div class="text-sm text-gray-500 dark:text-gray-400">
+                            - Famille Dubois, Plouescat
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact CTA -->
+            <div class="mt-12 p-6 bg-gradient-to-r from-red-50 to-blue-50 dark:from-red-900/20 dark:to-blue-900/20 rounded-lg">
+                <div class="text-center">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">
+                        Un projet électrique en vue ?
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        Contactez-nous pour un devis gratuit et personnalisé !
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="tel:+33670614176" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-all inline-flex items-center justify-center">
+                            <i class="fas fa-phone mr-2"></i>
+                            <span>Appeler maintenant</span>
+                        </a>
+                        <a href="index.html#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all inline-flex items-center justify-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span>Formulaire de contact</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+                <div class="flex flex-wrap gap-4">
+                    <a href="index.html" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg transition-all">
+                        <i class="fas fa-home mr-2"></i>
+                        <span>Accueil</span>
+                    </a>
+                    <a href="faq.html" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg transition-all">
+                        FAQ
+                    </a>
+                    <a href="mentions-legales.html" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg transition-all">
+                        Mentions légales
+                    </a>
+                    <a href="cgv.html" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg transition-all" data-translate="footer-cgv">
+                        CGV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Image Modal -->
+    <div class="modal" id="imageModal" onclick="closeModal()">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" class="modal-image" src="" alt="">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-8 mt-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2024 R.ELEC - Patrick REGNA. Tous droits réservés.</p>
+            <p class="mt-2 text-sm opacity-80">Électricien professionnel à Morlaix - Finistère</p>
+        </div>
+    </footer>
+
+    <script>
+        // ================================
+        // 🌐 SYSTÈME DE TRADUCTION
+        // ================================
+        
+        const translations = {
+            fr: {
+                // Meta and titles
+                'meta-description-realisations': 'Réalisations - Galerie photo des travaux électriques réalisés par R.ELEC Patrick REGNA à Morlaix.',
+                'title-realisations': 'Réalisations - Travaux Électriques - R.ELEC Patrick REGNA',
+                
+                // Navigation and UI
+                'current-lang': 'FR',
+                'lang-fr': 'Français',
+                'lang-en': 'English', 
+                'lang-es': 'Español',
+                'lang-br': 'Brezhoneg',
+                'back-to-site': 'Retour au site',
+                'footer-cgv': 'CGV',
+                
+                // Main content
+                'realizations-main-title': 'Nos Réalisations',
+                'realizations-subtitle': 'Découvrez nos travaux électriques réalisés chez nos clients à Morlaix et environs'
+            },
+            
+            en: {
+                // Meta and titles
+                'meta-description-realisations': 'Achievements - Photo gallery of electrical work carried out by R.ELEC Patrick REGNA in Morlaix.',
+                'title-realisations': 'Achievements - Electrical Work - R.ELEC Patrick REGNA',
+                
+                // Navigation and UI
+                'current-lang': 'EN',
+                'lang-fr': 'Français',
+                'lang-en': 'English', 
+                'lang-es': 'Español',
+                'lang-br': 'Brezhoneg',
+                'back-to-site': 'Back to site',
+                'footer-cgv': 'Terms of sale',
+                
+                // Main content
+                'realizations-main-title': 'Our Achievements',
+                'realizations-subtitle': 'Discover our electrical work carried out at our clients in Morlaix and surroundings'
+            },
+            
+            es: {
+                // Meta and titles
+                'meta-description-realisations': 'Realizaciones - Galería fotográfica de trabajos eléctricos realizados por R.ELEC Patrick REGNA en Morlaix.',
+                'title-realisations': 'Realizaciones - Trabajos Eléctricos - R.ELEC Patrick REGNA',
+                
+                // Navigation and UI
+                'current-lang': 'ES',
+                'lang-fr': 'Français',
+                'lang-en': 'English', 
+                'lang-es': 'Español',
+                'lang-br': 'Brezhoneg',
+                'back-to-site': 'Volver al sitio',
+                'footer-cgv': 'CGV',
+                
+                // Main content
+                'realizations-main-title': 'Nuestras Realizaciones',
+                'realizations-subtitle': 'Descubra nuestros trabajos eléctricos realizados en nuestros clientes en Morlaix y alrededores'
+            },
+            
+            br: {
+                // Meta and titles
+                'meta-description-realisations': 'Sevenadurezh - Skeudennaoueg eus an oberennoù listrel graet gant R.ELEC Patrick REGNA e Montroulez.',
+                'title-realisations': 'Sevenadurezh - Oberennoù Listrel - R.ELEC Patrick REGNA',
+                
+                // Navigation and UI
+                'current-lang': 'BR',
+                'lang-fr': 'Galleg',
+                'lang-en': 'Saozneg', 
+                'lang-es': 'Spagnoleg',
+                'lang-br': 'Brezhoneg',
+                'back-to-site': 'Distreiñ d\'ar bajenn',
+                'footer-cgv': 'CGV',
+                
+                // Main content
+                'realizations-main-title': 'Hor Sevenadurezh',
+                'realizations-subtitle': 'Dizoloit hor oberennoù listrel graet gant hor c\'hliented e Montroulez hag en tu-tro'
+            }
+        };
+
+        // ================================
+        // 🔄 FONCTIONS DE TRADUCTION
+        // ================================
+        
+        function translatePage(lang) {
+            if (!translations[lang]) return;
+            
+            // Mettre à jour tous les éléments avec data-translate
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang][key]) {
+                    // Pour les champs de saisie
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    }
+                    // Pour les meta descriptions
+                    else if (element.tagName === 'META') {
+                        element.content = translations[lang][key];
+                    }
+                    // Pour les titres
+                    else if (element.tagName === 'TITLE') {
+                        element.textContent = translations[lang][key];
+                    }
+                    // Pour les autres éléments
+                    else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+        }
+
+        function updateLanguageDisplay(lang) {
+            const flags = {
+                fr: '🇫🇷',
+                en: '🇬🇧', 
+                es: '🇪🇸',
+                br: 'photos/drapeau_breton.png'
+            };
+            
+            const currentFlag = document.getElementById('currentFlag');
+            const currentLang = document.getElementById('currentLang');
+            
+            if (lang === 'br') {
+                currentFlag.innerHTML = `<img src="${flags[lang]}" alt="Drapeau breton" class="language-flag">`;
+            } else {
+                currentFlag.textContent = flags[lang];
+            }
+            
+            if (currentLang) {
+                currentLang.textContent = translations[lang]['current-lang'];
+            }
+        }
+
+        function updateSelectedOption(lang) {
+            const dropdown = document.getElementById('languageDropdown');
+            if (!dropdown) return;
+            
+            // Retirer la classe selected de toutes les options
+            dropdown.querySelectorAll('.custom-language-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            const selectedOption = dropdown.querySelector(`[data-lang="${lang}"]`);
+            if (selectedOption) {
+                selectedOption.classList.add('selected');
+            }
+        }
+
+        function changeLanguage(lang) {
+            // Sauvegarder le choix
+            localStorage.setItem('selectedLanguage', lang);
+            
+            // Appliquer les traductions
+            translatePage(lang);
+            
+            // Mettre à jour l'affichage
+            updateLanguageDisplay(lang);
+            updateSelectedOption(lang);
+            
+            // Fermer le dropdown
+            const dropdown = document.getElementById('languageDropdown');
+            if (dropdown) {
+                dropdown.classList.add('hidden');
+            }
+        }
+
+        // ================================
+        // 🔄 FONCTIONS EXISTANTES
+        // ================================
+        
+        // Filter functionality
+        function initFilters() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    const filterValue = button.getAttribute('data-filter');
+                    
+                    projectCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                            setTimeout(() => card.style.opacity = '1', 50);
+                        } else {
+                            card.style.opacity = '0';
+                            setTimeout(() => card.style.display = 'none', 300);
+                        }
+                    });
+                });
+            });
+        }
+
+        // Modal functionality
+        function openModal(img) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.classList.add('active');
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+        }
+
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            localStorage.setItem('darkMode', isDark);
+        }
+
+        // ================================
+        // 🚀 INITIALISATION
+        // ================================
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mode sombre
+            const savedDarkMode = localStorage.getItem('darkMode');
+            if (savedDarkMode === 'true') {
+                document.documentElement.classList.add('dark');
+            }
+
+            // Theme toggle
+            const themeToggle = document.getElementById('themeToggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', toggleDarkMode);
+            }
+            
+            // Initialize filters
+            initFilters();
+            
+            // Initialisation des langues
+            const savedLanguage = localStorage.getItem('selectedLanguage') || 'fr';
+            
+            // S'assurer que le français est la langue par défaut
+            if (!localStorage.getItem('selectedLanguage')) {
+                localStorage.setItem('selectedLanguage', 'fr');
+            }
+            
+            if (savedLanguage && translations[savedLanguage]) {
+                changeLanguage(savedLanguage);
+            }
+            
+            // Toggle du sélecteur de langue
+            const languageToggle = document.getElementById('languageToggle');
+            const languageDropdown = document.getElementById('languageDropdown');
+            
+            if (languageToggle && languageDropdown) {
+                languageToggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    languageDropdown.classList.toggle('hidden');
+                });
+                
+                // Fermer le dropdown si on clique ailleurs
+                document.addEventListener('click', () => {
+                    languageDropdown.classList.add('hidden');
+                });
+                
+                // Gestion des clics sur les options
+                languageDropdown.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const option = e.target.closest('.custom-language-option');
+                    if (option) {
+                        const lang = option.getAttribute('data-lang');
+                        changeLanguage(lang);
+                    }
+                });
+            }
+
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape') {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

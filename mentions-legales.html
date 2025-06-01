@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mentions légales de R.ELEC - Patrick REGNA, électricien professionnel à Morlaix, Finistère." data-translate="meta-description-mentions">
+    <title data-translate="title-mentions">Mentions Légales - R.ELEC Patrick REGNA</title>
+    <link rel="icon" type="image/jpeg" href="photos/logo.jpeg">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .font-heading {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #D32F2F 0%, #19223A 100%);
+        }
+        
+        .dark {
+            background: #191C20;
+            color: #F6F6F6;
+        }
+        
+        .dark .bg-white {
+            background: #20263A !important;
+        }
+        
+        .dark .text-gray-900 {
+            color: #F6F6F6 !important;
+        }
+        
+        .dark .text-gray-700 {
+            color: #B8BCC6 !important;
+        }
+        
+        .dark .text-gray-600 {
+            color: #9CA3AF !important;
+        }
+        
+        .dark .border-gray-200 {
+            border-color: #2A2F3A !important;
+        }
+
+        /* Language Selector Styles */
+        .custom-language-selector {
+            position: relative;
+        }
+        
+        .custom-language-button {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            min-width: 60px;
+        }
+        
+        .custom-language-options {
+            min-width: 140px;
+            border: 1px solid #e5e7eb;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .custom-language-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            color: #374151;
+        }
+        
+        .custom-language-option:hover {
+            background-color: #f3f4f6;
+        }
+        
+        .custom-language-option.selected {
+            background-color: #dbeafe;
+            color: #1d4ed8;
+        }
+        
+        .language-flag {
+            width: 20px;
+            height: 15px;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 dark:bg-slate-900 text-gray-900 dark:text-white transition-colors duration-300">
+    
+    <!-- Header -->
+    <header class="gradient-bg text-white py-6">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <img src="photos/img-electricien.png" alt="Patrick REGNA électricien" class="h-12 w-12 object-cover rounded-lg">
+                    <div>
+                        <h1 class="font-heading font-bold text-2xl">R.ELEC</h1>
+                        <p class="text-sm opacity-90">Patrick REGNA</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <!-- Language Selector -->
+                    <div class="custom-language-selector">
+                        <button class="custom-language-button bg-white/20 hover:bg-white/30 p-2 rounded-lg transition-all" id="languageToggle" aria-label="Sélectionner la langue">
+                            <span class="language-flag" id="currentFlag">🇫🇷</span>
+                            <span class="language-text ml-1 hidden sm:inline" id="currentLang" data-translate="current-lang">FR</span>
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="custom-language-options absolute mt-2 right-0 bg-white rounded-lg shadow-lg py-2 hidden z-50" id="languageDropdown">
+                            <div class="custom-language-option selected" data-lang="fr" role="menuitem" tabindex="0">
+                                <span class="language-flag">🇫🇷</span>
+                                <span data-translate="lang-fr">Français</span>
+                            </div>
+                            <div class="custom-language-option" data-lang="en" role="menuitem" tabindex="0">
+                                <span class="language-flag">🇬🇧</span>
+                                <span data-translate="lang-en">English</span>
+                            </div>
+                            <div class="custom-language-option" data-lang="es" role="menuitem" tabindex="0">
+                                <span class="language-flag">🇪🇸</span>
+                                <span data-translate="lang-es">Español</span>
+                            </div>
+                            <div class="custom-language-option" data-lang="br" role="menuitem" tabindex="0">
+                                <img src="photos/drapeau_breton.png" alt="Drapeau breton" class="language-flag">
+                                <span data-translate="lang-br">Brezhoneg</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="themeToggle" class="bg-white/20 hover:bg-white/30 p-2 rounded-lg transition-all">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+                    
+                    <a href="index.html" class="bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-all">
+                        <i class="fas fa-arrow-left mr-2"></i>
+                        <span data-translate="back-to-site">Retour au site</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-8">
+            <h1 class="font-heading text-3xl font-bold text-gray-900 dark:text-white mb-8" data-translate="mentions-main-title">
+                Mentions Légales
+            </h1>
+            
+            <div class="prose prose-gray dark:prose-invert max-w-none">
+                
+                <!-- Éditeur du site -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4" data-translate="mentions-editor-title">1. Éditeur du site</h2>
+                    <div class="space-y-2 text-gray-700 dark:text-gray-300">
+                        <p><strong data-translate="mentions-denomination">Dénomination :</strong> R.ELEC</p>
+                        <p><strong data-translate="mentions-name">Nom :</strong> Patrick REGNA</p>
+                        <p><strong data-translate="mentions-status">Statut :</strong> <span data-translate="mentions-status-value">Entrepreneur individuel</span></p>
+                        <p><strong data-translate="mentions-activity">Activité :</strong> <span data-translate="mentions-activity-value">Installation électrique</span></p>
+                        <p><strong data-translate="mentions-ape">Code APE :</strong> 4321A</p>
+                        <p><strong data-translate="mentions-address">Adresse :</strong> Morlaix, 29600, France</p>
+                        <p><strong data-translate="mentions-phone">Téléphone :</strong> 06 70 61 41 76</p>
+                        <p><strong>Email :</strong> contact@r-elec-morlaix.fr</p>
+                        <p><strong>SIRET :</strong> <span data-translate="mentions-siret">[À compléter]</span></p>
+                        <p><strong data-translate="mentions-tva">TVA Intracommunautaire :</strong> <span data-translate="mentions-tva-value">[À compléter]</span></p>
+                    </div>
+                </section>
+
+                <!-- Hébergement -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">2. Hébergement</h2>
+                    <div class="text-gray-700 dark:text-gray-300">
+                        <p>Le site est hébergé par :</p>
+                        <p><strong>[Nom de l'hébergeur]</strong><br>
+                        <span>[Adresse de l'hébergeur]</span><br>
+                        <span>Téléphone :</span> <span>[Téléphone de l'hébergeur]</span></p>
+                    </div>
+                </section>
+
+                <!-- Propriété intellectuelle -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">3. Propriété intellectuelle</h2>
+                    <div class="text-gray-700 dark:text-gray-300 space-y-4">
+                        <p>L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques.</p>
+                        <p>La reproduction de tout ou partie de ce site sur un support électronique quel qu'il soit est formellement interdite sauf autorisation expresse du directeur de la publication.</p>
+                        <p>Les marques et logos figurant sur le site sont la propriété exclusive de R.ELEC.</p>
+                    </div>
+                </section>
+
+                <!-- Responsabilité -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">4. Responsabilité</h2>
+                    <div class="text-gray-700 dark:text-gray-300 space-y-4">
+                        <p>Les informations contenues sur ce site sont aussi précises que possible et le site remis à jour à différentes périodes de l'année, mais peut toutefois contenir des inexactitudes ou des omissions.</p>
+                        <p>Si vous constatez une lacune, erreur ou ce qui parait être un dysfonctionnement, merci de bien vouloir le signaler par e-mail en décrivant le problème de la manière la plus précise possible.</p>
+                        <p>R.ELEC ne pourra être tenu responsable des dommages directs et indirects causés au matériel de l'utilisateur, lors de l'accès au site.</p>
+                    </div>
+                </section>
+
+                <!-- Liens hypertextes -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">5. Liens hypertextes</h2>
+                    <div class="text-gray-700 dark:text-gray-300 space-y-4">
+                        <p>Les liens hypertextes mis en place dans le cadre du présent site web en direction d'autres ressources présentes sur le réseau Internet ne sauraient engager la responsabilité de R.ELEC.</p>
+                        <p>Tout site public ou privé est autorisé à établir, sans autorisation préalable, un lien vers les informations diffusées par R.ELEC.</p>
+                    </div>
+                </section>
+
+                <!-- Protection des données -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">6. Protection des données personnelles</h2>
+                    <div class="text-gray-700 dark:text-gray-300 space-y-4">
+                        <p>En France, les données personnelles sont notamment protégées par la loi n° 78-87 du 6 janvier 1978, la loi n° 2004-801 du 6 août 2004, l'article L. 226-13 du Code pénal et la Directive Européenne du 24 octobre 1995.</p>
+                        <p>Aucune information personnelle n'est collectée à votre insu. Aucune information personnelle n'est cédée à des tiers.</p>
+                        <p>Pour plus d'informations, consultez notre </p><a href="politique-confidentialite.html" class="text-blue-600 dark:text-blue-400 hover:underline">Politique de confidentialité</a><span>.</span>
+                    </div>
+                </section>
+
+                <!-- Droit applicable -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">7. Droit applicable et juridiction compétente</h2>
+                    <div class="text-gray-700 dark:text-gray-300">
+                        <p>Tout litige en relation avec l'utilisation du site www.r-elec-morlaix.fr est soumis au droit français. Il est fait attribution exclusive de juridiction aux tribunaux compétents de Brest.</p>
+                    </div>
+                </section>
+
+                <!-- Contact -->
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">8. Contact</h2>
+                    <div class="text-gray-700 dark:text-gray-300">
+                        <p>Pour toute question relative aux présentes mentions légales, vous pouvez nous contacter :</p>
+                        <ul class="list-disc list-inside space-y-1 mt-2">
+                            <li>Par téléphone : 06 70 61 41 76</li>
+                            <li>Par email : contact@r-elec-morlaix.fr</li>
+                            <li>Par courrier : R.ELEC, Morlaix, 29600, France</li>
+                        </ul>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Navigation -->
+            <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+                <div class="flex flex-wrap gap-4">
+                    <a href="index.html" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg transition-all">
+                        <i class="fas fa-home mr-2"></i>
+                        <span>Accueil</span>
+                    </a>
+                    <a href="politique-confidentialite.html" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg transition-all">
+                        Politique de confidentialité
+                    </a>
+                    <a href="cgv.html" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg transition-all">
+                        CGV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-8 mt-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2024 R.ELEC - Patrick REGNA. Tous droits réservés.</p>
+            <p class="mt-2 text-sm opacity-80">Électricien professionnel à Morlaix - Finistère</p>
+        </div>
+    </footer>
+
+    <script>
+        // ================================
+        // 🌐 SYSTÈME DE TRADUCTION
+        // ================================
+        
+        const translations = {
+            fr: {
+                // Meta and titles
+                'meta-description-mentions': 'Mentions légales de R.ELEC - Patrick REGNA, électricien professionnel à Morlaix, Finistère.',
+                'title-mentions': 'Mentions Légales - R.ELEC Patrick REGNA',
+                
+                // Navigation and UI
+                'current-lang': 'FR',
+                'lang-fr': 'Français',
+                'lang-en': 'English', 
+                'lang-es': 'Español',
+                'lang-br': 'Brezhoneg',
+                'back-to-site': 'Retour au site',
+                
+                // Main content
+                'mentions-main-title': 'Mentions Légales',
+                'mentions-editor-title': '1. Éditeur du site',
+                'mentions-denomination': 'Dénomination :',
+                'mentions-name': 'Nom :',
+                'mentions-status': 'Statut :',
+                'mentions-status-value': 'Entrepreneur individuel',
+                'mentions-activity': 'Activité :',
+                'mentions-activity-value': 'Installation électrique',
+                'mentions-ape': 'Code APE :',
+                'mentions-address': 'Adresse :',
+                'mentions-phone': 'Téléphone :',
+                'mentions-tva': 'TVA Intracommunautaire :',
+                'mentions-siret': '[À compléter]',
+                'mentions-tva-value': '[À compléter]'
+            },
+            
+            en: {
+                // Meta and titles
+                'meta-description-mentions': 'Legal notice for R.ELEC - Patrick REGNA, professional electrician in Morlaix, Finistère.',
+                'title-mentions': 'Legal Notice - R.ELEC Patrick REGNA',
+                
+                // Navigation and UI
+                'current-lang': 'EN',
+                'lang-fr': 'Français',
+                'lang-en': 'English', 
+                'lang-es': 'Español',
+                'lang-br': 'Brezhoneg',
+                'back-to-site': 'Back to site',
+                
+                // Main content
+                'mentions-main-title': 'Legal Notice',
+                'mentions-editor-title': '1. Site Publisher',
+                'mentions-denomination': 'Business name:',
+                'mentions-name': 'Name:',
+                'mentions-status': 'Status:',
+                'mentions-status-value': 'Individual entrepreneur',
+                'mentions-activity': 'Activity:',
+                'mentions-activity-value': 'Electrical installation',
+                'mentions-ape': 'APE Code:',
+                'mentions-address': 'Address:',
+                'mentions-phone': 'Phone:',
+                'mentions-tva': 'EU VAT Number:',
+                'mentions-siret': '[To be completed]',
+                'mentions-tva-value': '[To be completed]'
+            },
+            
+            es: {
+                // Meta and titles
+                'meta-description-mentions': 'Aviso legal de R.ELEC - Patrick REGNA, electricista profesional en Morlaix, Finistère.',
+                'title-mentions': 'Aviso Legal - R.ELEC Patrick REGNA',
+                
+                // Navigation and UI
+                'current-lang': 'ES',
+                'lang-fr': 'Français',
+                'lang-en': 'English', 
+                'lang-es': 'Español',
+                'lang-br': 'Brezhoneg',
+                'back-to-site': 'Volver al sitio',
+                
+                // Main content
+                'mentions-main-title': 'Aviso Legal',
+                'mentions-editor-title': '1. Editor del sitio',
+                'mentions-denomination': 'Denominación:',
+                'mentions-name': 'Nombre:',
+                'mentions-status': 'Estado:',
+                'mentions-status-value': 'Empresario individual',
+                'mentions-activity': 'Actividad:',
+                'mentions-activity-value': 'Instalación eléctrica',
+                'mentions-ape': 'Código APE:',
+                'mentions-address': 'Dirección:',
+                'mentions-phone': 'Teléfono:',
+                'mentions-tva': 'IVA Intracomunitario:',
+                'mentions-siret': '[Por completar]',
+                'mentions-tva-value': '[Por completar]'
+            },
+            
+            br: {
+                // Meta and titles
+                'meta-description-mentions': 'Kemennoù lezennel R.ELEC - Patrick REGNA, tredaner profesionnel e Montroulez, Penn-ar-Bed.',
+                'title-mentions': 'Kemennoù Lezennel - R.ELEC Patrick REGNA',
+                
+                // Navigation and UI
+                'current-lang': 'BR',
+                'lang-fr': 'Galleg',
+                'lang-en': 'Saozneg', 
+                'lang-es': 'Spagnoleg',
+                'lang-br': 'Brezhoneg',
+                'back-to-site': 'Distreiñ d\'ar bajenn',
+                
+                // Main content
+                'mentions-main-title': 'Kemennoù Lezennel',
+                'mentions-editor-title': '1. Aozer al lec\'hienn',
+                'mentions-denomination': 'Anv ar gompaniez:',
+                'mentions-name': 'Anv:',
+                'mentions-status': 'Statud:',
+                'mentions-status-value': 'Krogour unanenn',
+                'mentions-activity': 'Gwezhidigezh:',
+                'mentions-activity-value': 'Staliañ tredan',
+                'mentions-ape': 'Kod APE:',
+                'mentions-address': 'Chomlec\'h:',
+                'mentions-phone': 'Pellgomz:',
+                'mentions-tva': 'TVA Europa:',
+                'mentions-siret': '[Da glokaat]',
+                'mentions-tva-value': '[Da glokaat]'
+            }
+        };
+
+        // ================================
+        // 🔄 FONCTIONS DE TRADUCTION
+        // ================================
+        
+        function translatePage(lang) {
+            if (!translations[lang]) return;
+            
+            // Mettre à jour tous les éléments avec data-translate
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang][key]) {
+                    // Pour les champs de saisie
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    }
+                    // Pour les meta descriptions
+                    else if (element.tagName === 'META') {
+                        element.content = translations[lang][key];
+                    }
+                    // Pour les titres
+                    else if (element.tagName === 'TITLE') {
+                        element.textContent = translations[lang][key];
+                    }
+                    // Pour les autres éléments
+                    else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+        }
+
+        function updateLanguageDisplay(lang) {
+            const flags = {
+                fr: '🇫🇷',
+                en: '🇬🇧', 
+                es: '🇪🇸',
+                br: 'photos/drapeau_breton.png'
+            };
+            
+            const currentFlag = document.getElementById('currentFlag');
+            const currentLang = document.getElementById('currentLang');
+            
+            if (lang === 'br') {
+                currentFlag.innerHTML = `<img src="${flags[lang]}" alt="Drapeau breton" class="language-flag">`;
+            } else {
+                currentFlag.textContent = flags[lang];
+            }
+            
+            if (currentLang) {
+                currentLang.textContent = translations[lang]['current-lang'];
+            }
+        }
+
+        function updateSelectedOption(lang) {
+            const dropdown = document.getElementById('languageDropdown');
+            if (!dropdown) return;
+            
+            // Retirer la classe selected de toutes les options
+            dropdown.querySelectorAll('.custom-language-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            const selectedOption = dropdown.querySelector(`[data-lang="${lang}"]`);
+            if (selectedOption) {
+                selectedOption.classList.add('selected');
+            }
+        }
+
+        function changeLanguage(lang) {
+            // Sauvegarder le choix
+            localStorage.setItem('selectedLanguage', lang);
+            
+            // Appliquer les traductions
+            translatePage(lang);
+            
+            // Mettre à jour l'affichage
+            updateLanguageDisplay(lang);
+            updateSelectedOption(lang);
+            
+            // Fermer le dropdown
+            const dropdown = document.getElementById('languageDropdown');
+            if (dropdown) {
+                dropdown.classList.add('hidden');
+            }
+        }
+
+        // ================================
+        // 🚀 INITIALISATION
+        // ================================
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mode sombre
+            const savedDarkMode = localStorage.getItem('darkMode');
+            if (savedDarkMode === 'true') {
+                document.documentElement.classList.add('dark');
+            }
+
+            // Theme toggle
+            const themeToggle = document.getElementById('themeToggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    document.documentElement.classList.toggle('dark');
+                    localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+                });
+            }
+            
+            // Initialisation des langues
+            const savedLanguage = localStorage.getItem('selectedLanguage') || 'fr';
+            
+            // S'assurer que le français est la langue par défaut
+            if (!localStorage.getItem('selectedLanguage')) {
+                localStorage.setItem('selectedLanguage', 'fr');
+            }
+            
+            if (savedLanguage && translations[savedLanguage]) {
+                changeLanguage(savedLanguage);
+            }
+            
+            // Toggle du sélecteur de langue
+            const languageToggle = document.getElementById('languageToggle');
+            const languageDropdown = document.getElementById('languageDropdown');
+            
+            if (languageToggle && languageDropdown) {
+                languageToggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    languageDropdown.classList.toggle('hidden');
+                });
+                
+                // Fermer le dropdown si on clique ailleurs
+                document.addEventListener('click', () => {
+                    languageDropdown.classList.add('hidden');
+                });
+                
+                // Gestion des clics sur les options
+                languageDropdown.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const option = e.target.closest('.custom-language-option');
+                    if (option) {
+                        const lang = option.getAttribute('data-lang');
+                        changeLanguage(lang);
+                    }
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Synchronisation Langues - R.ELEC</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .status {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        .warning { background: #fff3cd; color: #856404; border: 1px solid #ffeaa7; }
+        h1 { color: #D32F2F; text-align: center; }
+        h2 { color: #333; border-bottom: 2px solid #D32F2F; padding-bottom: 10px; }
+        .page-link {
+            display: inline-block;
+            background: #D32F2F;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 5px;
+            transition: background 0.3s;
+        }
+        .page-link:hover {
+            background: #B71C1C;
+        }
+        .current-lang {
+            font-size: 18px;
+            font-weight: bold;
+            color: #D32F2F;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🌐 Test Synchronisation des Langues</h1>
+        
+        <div class="status info">
+            <strong>Instructions :</strong> Ce test vérifie que le choix de langue est bien synchronisé entre toutes les pages du site R.ELEC.
+        </div>
+        
+        <h2>📊 État actuel</h2>
+        <div class="status" id="current-status">
+            <p>Langue actuellement sélectionnée : <span class="current-lang" id="current-language">Chargement...</span></p>
+            <p>Stockage localStorage : <span id="storage-status">Vérification...</span></p>
+        </div>
+        
+        <h2>🔗 Navigation entre pages</h2>
+        <div class="status warning">
+            <strong>Test à effectuer :</strong>
+            <ol>
+                <li>Changez la langue sur la page d'accueil</li>
+                <li>Naviguez vers les autres pages via les liens ci-dessous</li>
+                <li>Vérifiez que la langue choisie est conservée</li>
+                <li>Revenez sur cette page pour confirmer</li>
+            </ol>
+        </div>
+        
+        <div style="text-align: center; margin: 20px 0;">
+            <a href="index.html" class="page-link">🏠 Accueil</a>
+            <a href="faq.html" class="page-link">❓ FAQ</a>
+            <a href="realisations.html" class="page-link">📸 Réalisations</a>
+            <a href="cgv.html" class="page-link">📋 CGV</a>
+            <a href="mentions-legales.html" class="page-link">⚖️ Mentions légales</a>
+            <a href="politique-confidentialite.html" class="page-link">🔒 Politique confidentialité</a>
+        </div>
+        
+        <h2>🔄 Résultats attendus</h2>
+        <div class="status success">
+            <p><strong>✅ Si la synchronisation fonctionne :</strong></p>
+            <ul>
+                <li>Le choix de langue est conservé sur toutes les pages</li>
+                <li>Les sélecteurs de langue affichent la même langue active</li>
+                <li>Le contenu traduit s'affiche dans la bonne langue</li>
+                <li>Le localStorage contient la même valeur partout</li>
+            </ul>
+        </div>
+        
+        <h2>📝 Détails techniques</h2>
+        <div class="status info">
+            <p><strong>Clé localStorage utilisée :</strong> <code>selectedLanguage</code></p>
+            <p><strong>Langues supportées :</strong> 🇫🇷 Français (défaut), 🇬🇧 Anglais, 🇪🇸 Espagnol, <img src="photos/drapeau_breton.png" width="20" alt="Breton"> Breton</p>
+            <p><strong>Pages avec sélecteur :</strong> Toutes les pages (index.html, faq.html, realisations.html, cgv.html, mentions-legales.html, politique-confidentialite.html)</p>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px;">
+            <button onclick="clearLanguageSettings()" style="background: #f44336; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+                🗑️ Réinitialiser les paramètres de langue
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Vérification de l'état actuel
+        function updateStatus() {
+            const savedLanguage = localStorage.getItem('selectedLanguage');
+            const currentLangElement = document.getElementById('current-language');
+            const storageElement = document.getElementById('storage-status');
+            
+            if (savedLanguage) {
+                const langNames = {
+                    'fr': '🇫🇷 Français',
+                    'en': '🇬🇧 Anglais', 
+                    'es': '🇪🇸 Espagnol',
+                    'br': '🏴󠁧󠁢󠁷󠁬󠁳󠁿 Breton'
+                };
+                currentLangElement.textContent = langNames[savedLanguage] || savedLanguage;
+                storageElement.textContent = `✅ Actif (${savedLanguage})`;
+                storageElement.style.color = '#155724';
+            } else {
+                currentLangElement.textContent = '🇫🇷 Français (par défaut)';
+                storageElement.textContent = '⚠️ Aucune langue sauvegardée';
+                storageElement.style.color = '#856404';
+            }
+        }
+        
+        function clearLanguageSettings() {
+            localStorage.removeItem('selectedLanguage');
+            alert('Paramètres de langue réinitialisés ! Rechargez les pages pour voir l\'effet.');
+            updateStatus();
+        }
+        
+        // Mettre à jour l'état au chargement
+        document.addEventListener('DOMContentLoaded', updateStatus);
+        
+        // Mettre à jour l'état toutes les 2 secondes (pour détecter les changements)
+        setInterval(updateStatus, 2000);
+    </script>
+</body>
+</html> 

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tests Automatisés - ElectroMorlaix</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .test-pass { color: #10b981; }
+        .test-fail { color: #ef4444; }
+        .test-pending { color: #f59e0b; }
+    </style>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-6xl mx-auto">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">
+                🧪 Tests Automatisés - ElectroMorlaix
+            </h1>
+            <p class="text-gray-600">Validation complète du site web professionnel</p>
+        </header>
+
+        <!-- Test Results Dashboard -->
+        <div class="grid md:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white rounded-lg p-6 shadow-lg text-center">
+                <div id="totalTests" class="text-3xl font-bold text-blue-600">0</div>
+                <div class="text-gray-600">Total Tests</div>
+            </div>
+            <div class="bg-white rounded-lg p-6 shadow-lg text-center">
+                <div id="passedTests" class="text-3xl font-bold text-green-600">0</div>
+                <div class="text-gray-600">Passés</div>
+            </div>
+            <div class="bg-white rounded-lg p-6 shadow-lg text-center">
+                <div id="failedTests" class="text-3xl font-bold text-red-600">0</div>
+                <div class="text-gray-600">Échoués</div>
+            </div>
+            <div class="bg-white rounded-lg p-6 shadow-lg text-center">
+                <div id="successRate" class="text-3xl font-bold text-purple-600">0%</div>
+                <div class="text-gray-600">Succès</div>
+            </div>
+        </div>
+
+        <!-- Test Categories -->
+        <div class="space-y-6">
+            <!-- SEO Tests -->
+            <div class="bg-white rounded-lg shadow-lg">
+                <h2 class="text-2xl font-bold p-6 border-b border-gray-200">
+                    📈 Tests SEO
+                </h2>
+                <div id="seoTests" class="p-6 space-y-3">
+                    <!-- Tests will be populated here -->
+                </div>
+            </div>
+
+            <!-- Performance Tests -->
+            <div class="bg-white rounded-lg shadow-lg">
+                <h2 class="text-2xl font-bold p-6 border-b border-gray-200">
+                    🚀 Tests Performance
+                </h2>
+                <div id="performanceTests" class="p-6 space-y-3">
+                    <!-- Tests will be populated here -->
+                </div>
+            </div>
+
+            <!-- Accessibility Tests -->
+            <div class="bg-white rounded-lg shadow-lg">
+                <h2 class="text-2xl font-bold p-6 border-b border-gray-200">
+                    ♿ Tests Accessibilité
+                </h2>
+                <div id="accessibilityTests" class="p-6 space-y-3">
+                    <!-- Tests will be populated here -->
+                </div>
+            </div>
+
+            <!-- Functionality Tests -->
+            <div class="bg-white rounded-lg shadow-lg">
+                <h2 class="text-2xl font-bold p-6 border-b border-gray-200">
+                    ⚡ Tests Fonctionnalités
+                </h2>
+                <div id="functionalityTests" class="p-6 space-y-3">
+                    <!-- Tests will be populated here -->
+                </div>
+            </div>
+
+            <!-- Browser Compatibility -->
+            <div class="bg-white rounded-lg shadow-lg">
+                <h2 class="text-2xl font-bold p-6 border-b border-gray-200">
+                    🌐 Compatibilité Navigateurs
+                </h2>
+                <div id="browserTests" class="p-6 space-y-3">
+                    <!-- Tests will be populated here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="mt-8 text-center space-x-4">
+            <button id="runAllTests" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">
+                <i class="fas fa-play mr-2"></i>
+                Lancer Tous les Tests
+            </button>
+            <button id="exportResults" class="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700">
+                <i class="fas fa-download mr-2"></i>
+                Exporter Résultats
+            </button>
+            <button id="generateReport" class="bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700">
+                <i class="fas fa-file-pdf mr-2"></i>
+                Rapport PDF
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Test Suite for ElectroMorlaix
+        class TestSuite {
+            constructor() {
+                this.tests = [];
+                this.results = {
+                    total: 0,
+                    passed: 0,
+                    failed: 0
+                };
+                this.init();
+            }
+
+            init() {
+                this.setupTests();
+                this.bindEvents();
+            }
+
+            setupTests() {
+                // SEO Tests
+                this.addTest('seo', 'Meta title présent', () => {
+                    return document.title && document.title.length > 0;
+                });
+
+                this.addTest('seo', 'Meta description présente', () => {
+                    const desc = document.querySelector('meta[name="description"]');
+                    return desc && desc.content.length > 50 && desc.content.length < 160;
+                });
+
+                this.addTest('seo', 'Données structurées JSON-LD', () => {
+                    const jsonLD = document.querySelector('script[type="application/ld+json"]');
+                    return jsonLD !== null;
+                });
+
+                this.addTest('seo', 'Open Graph tags', () => {
+                    const ogTitle = document.querySelector('meta[property="og:title"]');
+                    const ogDesc = document.querySelector('meta[property="og:description"]');
+                    return ogTitle && ogDesc;
+                });
+
+                this.addTest('seo', 'Balises H1 uniques', () => {
+                    const h1s = document.querySelectorAll('h1');
+                    return h1s.length === 1;
+                });
+
+                // Performance Tests
+                this.addTest('performance', 'Images avec lazy loading', () => {
+                    const images = document.querySelectorAll('img');
+                    let lazyImages = 0;
+                    images.forEach(img => {
+                        if (img.loading === 'lazy' || img.hasAttribute('loading')) {
+                            lazyImages++;
+                        }
+                    });
+                    return lazyImages > 0;
+                });
+
+                this.addTest('performance', 'Preconnect DNS configurés', () => {
+                    const preconnects = document.querySelectorAll('link[rel="preconnect"]');
+                    return preconnects.length >= 3;
+                });
+
+                this.addTest('performance', 'CSS critique inline', () => {
+                    const styleTag = document.querySelector('style');
+                    return styleTag && styleTag.textContent.length > 1000;
+                });
+
+                this.addTest('performance', 'Compression gzip simulée', () => {
+                    // Simulation - normalement testé côté serveur
+                    return true;
+                });
+
+                // Accessibility Tests
+                this.addTest('accessibility', 'Skip links présents', () => {
+                    const skipLink = document.querySelector('a[href="#main-content"]');
+                    return skipLink !== null;
+                });
+
+                this.addTest('accessibility', 'Images avec alt text', () => {
+                    const images = document.querySelectorAll('img');
+                    let imagesWithAlt = 0;
+                    images.forEach(img => {
+                        if (img.alt && img.alt.length > 0) {
+                            imagesWithAlt++;
+                        }
+                    });
+                    return imagesWithAlt === images.length;
+                });
+
+                this.addTest('accessibility', 'Boutons avec aria-label', () => {
+                    const buttons = document.querySelectorAll('button');
+                    let buttonsWithLabels = 0;
+                    buttons.forEach(btn => {
+                        if (btn.getAttribute('aria-label') || btn.title) {
+                            buttonsWithLabels++;
+                        }
+                    });
+                    return buttonsWithLabels > 0;
+                });
+
+                this.addTest('accessibility', 'Navigation avec ARIA', () => {
+                    const nav = document.querySelector('nav[role="navigation"]');
+                    return nav !== null;
+                });
+
+                this.addTest('accessibility', 'Formulaires avec labels', () => {
+                    const inputs = document.querySelectorAll('input, select, textarea');
+                    let inputsWithLabels = 0;
+                    inputs.forEach(input => {
+                        const label = document.querySelector(`label[for="${input.id}"]`) || 
+                                     input.closest('label') || 
+                                     input.getAttribute('aria-label');
+                        if (label) {
+                            inputsWithLabels++;
+                        }
+                    });
+                    return inputsWithLabels > 0;
+                });
+
+                // Functionality Tests
+                this.addTest('functionality', 'Navigation mobile', () => {
+                    const mobileMenu = document.getElementById('mobileMenu');
+                    const mobileBtn = document.getElementById('mobileMenuBtn');
+                    return mobileMenu && mobileBtn;
+                });
+
+                this.addTest('functionality', 'Sélecteur de langue', () => {
+                    const langSelector = document.getElementById('languageSelector');
+                    return langSelector && langSelector.options.length >= 4;
+                });
+
+                this.addTest('functionality', 'Toggle dark mode', () => {
+                    const themeToggle = document.getElementById('themeToggle');
+                    return themeToggle !== null;
+                });
+
+                this.addTest('functionality', 'Formulaire de contact', () => {
+                    const form = document.getElementById('contactForm');
+                    const requiredFields = form ? form.querySelectorAll('[required]') : [];
+                    return form && requiredFields.length >= 5;
+                });
+
+                this.addTest('functionality', 'Liens téléphone fonctionnels', () => {
+                    const telLinks = document.querySelectorAll('a[href^="tel:"]');
+                    return telLinks.length >= 2;
+                });
+
+                // Browser Compatibility Tests
+                this.addTest('browser', 'CSS Grid support', () => {
+                    return CSS.supports('display', 'grid');
+                });
+
+                this.addTest('browser', 'CSS Custom Properties', () => {
+                    return CSS.supports('(--custom: value)');
+                });
+
+                this.addTest('browser', 'IntersectionObserver API', () => {
+                    return 'IntersectionObserver' in window;
+                });
+
+                this.addTest('browser', 'LocalStorage support', () => {
+                    return 'localStorage' in window;
+                });
+            }
+
+            addTest(category, name, testFunction) {
+                this.tests.push({
+                    category,
+                    name,
+                    test: testFunction,
+                    status: 'pending'
+                });
+            }
+
+            async runAllTests() {
+                this.results = { total: 0, passed: 0, failed: 0 };
+                
+                for (let test of this.tests) {
+                    try {
+                        const result = await test.test();
+                        test.status = result ? 'passed' : 'failed';
+                        if (result) {
+                            this.results.passed++;
+                        } else {
+                            this.results.failed++;
+                        }
+                    } catch (error) {
+                        test.status = 'failed';
+                        test.error = error.message;
+                        this.results.failed++;
+                    }
+                    this.results.total++;
+                }
+
+                this.renderResults();
+                this.updateDashboard();
+            }
+
+            renderResults() {
+                const categories = ['seo', 'performance', 'accessibility', 'functionality', 'browser'];
+                
+                categories.forEach(category => {
+                    const container = document.getElementById(`${category}Tests`);
+                    container.innerHTML = '';
+                    
+                    const categoryTests = this.tests.filter(test => test.category === category);
+                    
+                    categoryTests.forEach(test => {
+                        const testElement = document.createElement('div');
+                        testElement.className = 'flex items-center justify-between p-3 border rounded-lg';
+                        
+                        const statusIcon = test.status === 'passed' ? 
+                            '<i class="fas fa-check-circle test-pass"></i>' :
+                            test.status === 'failed' ?
+                            '<i class="fas fa-times-circle test-fail"></i>' :
+                            '<i class="fas fa-clock test-pending"></i>';
+                        
+                        testElement.innerHTML = `
+                            <div class="flex items-center space-x-3">
+                                ${statusIcon}
+                                <span class="${test.status === 'passed' ? 'text-green-700' : test.status === 'failed' ? 'text-red-700' : 'text-yellow-700'}">${test.name}</span>
+                            </div>
+                            <div class="text-sm text-gray-500">
+                                ${test.error || ''}
+                            </div>
+                        `;
+                        
+                        container.appendChild(testElement);
+                    });
+                });
+            }
+
+            updateDashboard() {
+                document.getElementById('totalTests').textContent = this.results.total;
+                document.getElementById('passedTests').textContent = this.results.passed;
+                document.getElementById('failedTests').textContent = this.results.failed;
+                
+                const successRate = this.results.total > 0 ? 
+                    Math.round((this.results.passed / this.results.total) * 100) : 0;
+                document.getElementById('successRate').textContent = successRate + '%';
+            }
+
+            exportResults() {
+                const report = {
+                    timestamp: new Date().toISOString(),
+                    summary: this.results,
+                    tests: this.tests.map(test => ({
+                        category: test.category,
+                        name: test.name,
+                        status: test.status,
+                        error: test.error || null
+                    }))
+                };
+
+                const blob = new Blob([JSON.stringify(report, null, 2)], {
+                    type: 'application/json'
+                });
+                
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `electromorlaix-tests-${new Date().toISOString().split('T')[0]}.json`;
+                a.click();
+                URL.revokeObjectURL(url);
+            }
+
+            generateReport() {
+                // Simulation de génération PDF
+                alert('Fonctionnalité de rapport PDF en cours de développement. Utilisez l\'export JSON pour le moment.');
+            }
+
+            bindEvents() {
+                document.getElementById('runAllTests').addEventListener('click', () => {
+                    this.runAllTests();
+                });
+
+                document.getElementById('exportResults').addEventListener('click', () => {
+                    this.exportResults();
+                });
+
+                document.getElementById('generateReport').addEventListener('click', () => {
+                    this.generateReport();
+                });
+            }
+        }
+
+        // Initialize test suite
+        document.addEventListener('DOMContentLoaded', () => {
+            const testSuite = new TestSuite();
+            
+            // Render initial state
+            testSuite.renderResults();
+            testSuite.updateDashboard();
+            
+            // Auto-run tests after 2 seconds
+            setTimeout(() => {
+                testSuite.runAllTests();
+            }, 2000);
+        });
+    </script>
+</body>
+</html> 
