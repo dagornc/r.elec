@@ -106,12 +106,39 @@
             box-shadow: 0 4px 20px rgba(211, 47, 47, 0.3);
         }
         
+        /* Ajout d'espace en haut sur mobile pour éviter que le header soit collé */
+        @media (max-width: 768px) {
+            #navbar {
+                padding-top: 8px;
+            }
+        }
+        
+        /* Ajustement pour les très petits écrans */
+        @media (max-width: 480px) {
+            #navbar {
+                padding-top: 12px;
+            }
+        }
+        
         /* Hero critique */
         .hero-gradient { 
             background: linear-gradient(135deg, var(--primary) 0%, #B71C1C 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
+        }
+        
+        /* Ajustement du contenu principal sur mobile pour compenser le header plus haut */
+        @media (max-width: 768px) {
+            .hero-gradient {
+                padding-top: 8px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-gradient {
+                padding-top: 12px;
+            }
         }
         
         /* Boutons critiques */
