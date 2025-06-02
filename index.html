@@ -1932,6 +1932,31 @@
                 font-size: 14px !important;
             }
         }
+        
+        /* Styles pour les étoiles d'avis - jaune éclatant en mode clair et sombre */
+        .text-yellow-400 .fas.fa-star,
+        .text-yellow-400.fas.fa-star,
+        .flex.text-yellow-400 .fas.fa-star,
+        .flex.text-yellow-400 i.fas.fa-star {
+            color: #FFD700 !important; /* Or éclatant */
+            text-shadow: 0 0 2px rgba(255, 215, 0, 0.5);
+        }
+        
+        /* Styles spécifiques pour les étoiles Unicode */
+        .text-yellow-400 {
+            color: #FFD700 !important; /* Or éclatant pour les étoiles Unicode aussi */
+            text-shadow: 0 0 2px rgba(255, 215, 0, 0.5);
+        }
+        
+        /* Mode sombre - étoiles encore plus brillantes */
+        .dark .text-yellow-400 .fas.fa-star,
+        .dark .text-yellow-400.fas.fa-star,
+        .dark .flex.text-yellow-400 .fas.fa-star,
+        .dark .flex.text-yellow-400 i.fas.fa-star,
+        .dark .text-yellow-400 {
+            color: #FFE135 !important; /* Jaune plus clair en mode sombre */
+            text-shadow: 0 0 4px rgba(255, 225, 53, 0.7);
+        }
     </style>
 </head>
 

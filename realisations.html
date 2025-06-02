@@ -201,6 +201,18 @@
             color: white;
         }
 
+        /* Styles pour les étoiles d'avis - jaune éclatant en mode clair et sombre */
+        .text-yellow-400 {
+            color: #FFD700 !important; /* Or éclatant pour les étoiles Unicode */
+            text-shadow: 0 0 2px rgba(255, 215, 0, 0.5);
+        }
+        
+        /* Mode sombre - étoiles encore plus brillantes */
+        .dark .text-yellow-400 {
+            color: #FFE135 !important; /* Jaune plus clair en mode sombre */
+            text-shadow: 0 0 4px rgba(255, 225, 53, 0.7);
+        }
+
         /* Language Selector Styles */
         .custom-language-selector {
             position: relative;
