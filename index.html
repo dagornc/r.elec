@@ -1957,6 +1957,17 @@
             color: #FFE135 !important; /* Jaune plus clair en mode sombre */
             text-shadow: 0 0 4px rgba(255, 225, 53, 0.7);
         }
+        
+        /* Style spécial pour l'étoile de la section hero */
+        .text-yellow-600 {
+            color: #D97706 !important; /* Orange-jaune foncé pour contraster avec le fond jaune */
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .dark .text-yellow-800 {
+            color: #92400E !important; /* Plus foncé en mode sombre */
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
     </style>
 </head>
 
@@ -2260,7 +2271,7 @@
                         </div>
                         <div class="absolute -bottom-6 -right-6 bg-yellow-400 rounded-2xl p-6 shadow-xl">
                             <div class="text-center">
-                                <div class="text-2xl font-bold text-gray-900" aria-label="Note de 4.9 sur 5 étoiles">⭐ 4.9/5</div>
+                                <div class="text-2xl font-bold text-yellow-600 dark:text-yellow-800" aria-label="Note de 4.9 sur 5 étoiles">⭐ 4.9/5</div>
                                 <div class="text-sm text-gray-700" data-translate="hero-rating">Avis clients</div>
                             </div>
                         </div>
